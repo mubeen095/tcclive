@@ -1,0 +1,11 @@
+{
+  "name": "tcc-site-backend",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "db:setup": "node scripts/schema.js"
+  },
+  "dependencies": {
+    "@vercel/postgres": "^0.10.0"
+  }
+}

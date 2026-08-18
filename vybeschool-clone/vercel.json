@@ -1,0 +1,34 @@
+{
+  "outputDirectory": "www.vybeschool.com",
+  "rewrites": [
+    { "source": "/become-a-member/", "destination": "/become-a-member/index.html" },
+    { "source": "/become-a-member", "destination": "/become-a-member/index.html" },
+    { "source": "/bootcamps/", "destination": "/bootcamps/index.html" },
+    { "source": "/bootcamps", "destination": "/bootcamps/index.html" },
+    { "source": "/bootcamps-loading", "destination": "/bootcamps/index.html" },
+    { "source": "/100-club-apply/", "destination": "/100-club-apply/index.html" },
+    { "source": "/100-club-apply", "destination": "/100-club-apply/index.html" },
+    { "source": "/gigs/", "destination": "/gigs/index.html" },
+    { "source": "/gigs", "destination": "/gigs/index.html" },
+    { "source": "/gigs/apply/", "destination": "/gigs/apply/index.html" },
+    { "source": "/gigs/apply", "destination": "/gigs/apply/index.html" },
+    { "source": "/gigs/hire/", "destination": "/gigs/hire/index.html" },
+    { "source": "/gigs/hire", "destination": "/gigs/hire/index.html" },
+    { "source": "/login/", "destination": "/login/index.html" },
+    { "source": "/login", "destination": "/login/index.html" },
+    { "source": "/member/", "destination": "/member/index.html" },
+    { "source": "/member", "destination": "/member/index.html" },
+    { "source": "/admin/", "destination": "/admin/index.html" },
+    { "source": "/admin", "destination": "/admin/index.html" },
+    { "source": "/api/(.*)", "destination": "/api/$1" },
+    { "source": "/(.*)", "destination": "/spa.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Become a member | The Coding Company — Apply and get vetted</title>
+    <meta name="description" content="Apply and get vetted. Our AI agent evaluates your professional profile and gives you an instant decision. Now accepting applications for the next cohort." />
+    <meta property="og:title" content="Become a member | The Coding Company" />
+    <meta property="og:description" content="Apply and get vetted. Now accepting applications. We optimise for fit, not volume." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/vs-ig-posts-youtube-thumbnail.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://thecodingcompany.com/become-a-member" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/tcc-favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/tcc-favicon-96.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/tcc-apple-touch.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+      body { background: #050505; color: #fff; font-family: 'Inter', system-ui, sans-serif; font-weight: 400; line-height: 1.5; overflow: hidden; }
+      img { display: block; max-width: 100%; }
+      a { color: inherit; text-decoration: none; }
+      button, input, select, textarea { font-family: inherit; }
+
+      h1, h2 { font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: -0.04em; }
+      .serif-i { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
+      .mono { font-family: 'DM Mono', 'Roboto Mono', monospace; }
+
+      .app-shell { height: 100dvh; overflow: hidden; display: flex; background: #050505; }
+
+      .sidebar { display: none; position: sticky; top: 0; width: 200px; min-height: 100%; padding: 24px 16px; flex-direction: column; flex-shrink: 0; border-right: 1px solid rgba(255,255,255,0.05); background: #050505; overflow-y: auto; overflow-x: hidden; }
+      @media (min-width: 768px) { .sidebar { display: flex; } }
+      .sidebar-link { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 12px; font-size: 14px; color: rgba(255,255,255,0.4); transition: all 0.3s; position: relative; }
+      .sidebar-link svg { width: 18px; height: 18px; flex-shrink: 0; stroke-width: 1.5; }
+      .sidebar-link:hover { color: #fff; background: rgba(255,255,255,0.05); }
+      .sidebar-link.active { color: #fff; background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.12), transparent 70%); mask-image: linear-gradient(to right, black 40%, transparent 100%); -webkit-mask-image: linear-gradient(to right, black 40%, transparent 100%); }
+      .sidebar-link .label { font-weight: 500; letter-spacing: 0.01em; }
+      .sidebar-nav { margin-top: 25vh; }
+      .sidebar-bottom { margin-top: auto; display: flex; flex-direction: column; gap: 12px; }
+      .sidebar-webinars { display: flex; align-items: center; gap: 12px; padding: 12px 4px; color: rgba(255,255,255,0.4); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.25em; transition: color 0.3s; }
+      .sidebar-webinars:hover { color: #fff; }
+      .sidebar-webinars svg { width: 16px; height: 16px; stroke-width: 1.5; }
+      .btn-login { display: block; text-align: center; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 12px 20px; font-size: 13px; color: rgba(255,255,255,0.8); font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; transition: all 0.3s; }
+      .btn-login:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff; }
+      .brand-serif { font-family: 'Instrument Serif', serif; font-weight: 700; letter-spacing: -0.01em; }
+      .sidebar-brand { font-size: 21px; padding: 0 8px; margin-bottom: 24px; transition: all 0.3s; }
+      .sidebar-brand:hover { text-shadow: 0 0 16px rgba(255,255,255,0.4); }
+
+      .main-scroll { flex: 1; height: 100%; overflow-y: auto; overflow-x: hidden; position: relative; }
+
+      .mobile-header { display: flex; position: sticky; top: 0; left: 0; right: 0; z-index: 110; padding: 8px 16px; align-items: center; justify-content: space-between; background: rgba(6,6,6,0.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06); }
+      @media (min-width: 768px) { .mobile-header { display: none; } }
+      .mobile-brand { font-size: 19px; }
+      .mobile-actions { display: flex; align-items: center; gap: 10px; }
+      .mobile-login { width: 40px; height: 40px; border-radius: 999px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); transition: all 0.3s; }
+      .mobile-login:hover { background: rgba(255,255,255,0.15); }
+      .mobile-login svg { width: 20px; height: 20px; stroke-width: 1.5; }
+      .mobile-cta { font-size: 12px; font-weight: 600; background: #0064FF; color: #fff; border: 0; border-radius: 999px; padding: 9px 16px; white-space: nowrap; transition: background 0.2s; }
+      .mobile-cta:hover { background: rgb(0,70,178); }
+      @media (max-width: 360px) { .mobile-header { padding: 8px 12px; gap: 8px; } .mobile-brand { font-size: 17px; } .mobile-cta { font-size: 11px; padding: 8px 12px; } }
+
+      .bottom-nav { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; height: 76px; background: #060606; border-top: 1px solid #1F1F1F; align-items: stretch; }
+      @media (max-width: 767px) { .bottom-nav { display: flex; } }
+      .bottom-nav-inner { display: flex; justify-content: space-around; align-items: stretch; width: 100%; height: 100%; }
+      .bottom-link { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; flex: 1; min-width: 0; color: #999; transition: all 0.2s; }
+      .bottom-link svg { width: 26px; height: 26px; stroke-width: 1.5; transition: all 0.3s; }
+      .bottom-link:hover { color: rgba(255,255,255,0.7); }
+      .bottom-link.active { color: #fff; }
+      .bottom-link.active::before { content: ''; position: absolute; bottom: 6px; left: 50%; transform: translateX(-50%); width: 130%; height: 62%; background: radial-gradient(closest-side, rgba(188,165,255,0.30), transparent 72%); filter: blur(3px); pointer-events: none; }
+      .bottom-link.active svg { color: #fff; position: relative; filter: drop-shadow(0 0 8px rgba(188,165,255,0.55)) drop-shadow(0 0 3px rgba(255,255,255,0.35)); }
+      .bottom-link.active::after { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 70%; height: 1px; border-radius: 2px; background: linear-gradient(90deg,#BCA4FF 0%,#fff 100%); }
+      .bottom-link span { font-size: 12px; font-weight: 400; line-height: 1; }
+      .content-wrap { padding-bottom: 90px; }
+      @media (min-width: 768px) { .content-wrap { padding-bottom: 0; } }
+
+      .btn-primary { display: inline-flex; align-items: center; justify-content: center; background: #0057DE; color: #fff; border: 0; font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: -0.01em; white-space: nowrap; border-radius: 38px; box-shadow: 0px 4px 8.8px 0px rgba(0,0,0,0.33); transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease; cursor: pointer; }
+      .btn-primary:hover { background: #0A63EA; box-shadow: 0px 6px 14px 0px rgba(0,0,0,0.4); transform: translateY(-1px); }
+      .btn-white { display: inline-flex; align-items: center; justify-content: center; background: #fff; color: #000; border: 0; font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: -0.01em; white-space: nowrap; border-radius: 60px; box-shadow: 0px 4px 8.8px 0px rgba(0,0,0,0.33); transition: box-shadow 0.2s ease, transform 0.15s ease; cursor: pointer; }
+      .btn-white:hover { box-shadow: 0px 6px 14px 0px rgba(0,0,0,0.4); transform: translateY(-1px); }
+      .btn-white.pill-lg { font-size: 18px; padding: 20px 40px; }
+      .btn-primary.pill-lg { font-size: 18px; padding: 20px 40px; border-radius: 60px; }
+
+      .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+      .reveal.in { opacity: 1; transform: translateY(0); }
+
+      /* --- Application layout --- */
+      .apply-hero { position: relative; min-height: 100dvh; display: flex; flex-direction: column; justify-content: center; background: #060606; overflow: hidden; }
+      .apply-glow { position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 68% 26% at 49% 12%, rgba(18,87,165,0.6) 0%, rgba(18,87,165,0.28) 55%, rgba(18,87,165,0) 82%); }
+      .apply-fade { position: absolute; left: 0; right: 0; bottom: 0; height: 34%; z-index: 1; pointer-events: none; background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #000 100%); }
+      .apply-content { position: relative; z-index: 2; max-width: min(720px, 94%); margin: 0 auto; padding: 46px 0 60px; width: 100%; }
+      .apply-eyebrow { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 22px; }
+      .apply-h1 { font-weight: 800; letter-spacing: -0.04em; line-height: 1.05; font-size: clamp(34px, 4.6vw, 58px); margin-bottom: 18px; }
+      .apply-sub { color: rgba(255,255,255,0.9); font-weight: 500; letter-spacing: -0.02em; font-size: clamp(18px, 2vw, 24px); max-width: 24em; margin-bottom: 40px; }
+      .apply-sub .serif-i { color: #fff; }
+
+      .apply-card { background: rgba(15,15,15,0.85); border: 1px solid rgba(255,255,255,0.14); border-radius: 20px; padding: 32px; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: 0 30px 80px rgba(0,0,0,0.5); }
+      .apply-steps { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; }
+      .apply-step { width: 32px; height: 32px; border-radius: 999px; background: #3096ff; display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-weight: 500; font-size: 13px; color: #fff; flex-shrink: 0; }
+      .apply-step-line { flex: 1; height: 0; border-top: 2px dashed #fff; opacity: 0.4; }
+      @media (max-width: 560px) { .apply-steps { display: none; } }
+
+      .field { margin-bottom: 18px; }
+      .field label { display: block; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 8px; }
+      .field input, .field select, .field textarea { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.16); border-radius: 12px; padding: 14px 16px; color: #fff; font-size: 15px; outline: none; transition: border-color 0.2s, background 0.2s; appearance: none; -webkit-appearance: none; }
+      .field select { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23fff' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; }
+      .field select option { background: #111; color: #fff; }
+      .field textarea { resize: vertical; min-height: 84px; }
+      .field input:focus, .field select:focus, .field textarea:focus { border-color: #3096ff; background: rgba(49,150,255,0.08); }
+      .field input::placeholder, .field textarea::placeholder { color: rgba(255,255,255,0.35); }
+
+      .apply-submit { width: 100%; padding: 18px; font-size: 16px; margin-top: 6px; }
+
+      .apply-note { text-align: center; color: rgba(255,255,255,0.45); font-size: 13px; margin-top: 18px; }
+      .apply-note a { text-decoration: underline; text-underline-offset: 3px; }
+      .apply-note a:hover { color: #fff; }
+
+      /* --- Evaluation state --- */
+      .eval-card { background: rgba(15,15,15,0.85); border: 1px solid rgba(255,255,255,0.14); border-radius: 20px; padding: 40px 32px; text-align: center; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); display: none; }
+      .eval-spinner { width: 46px; height: 46px; margin: 0 auto 22px; border-radius: 999px; border: 3px solid rgba(255,255,255,0.14); border-top-color: #3096ff; animation: spin 1s linear infinite; }
+      @keyframes spin { to { transform: rotate(360deg); } }
+      .eval-title { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; }
+      .eval-status { font-family: 'DM Mono', monospace; font-size: 12px; color: rgba(255,255,255,0.6); letter-spacing: 0.06em; text-transform: uppercase; min-height: 18px; }
+
+      /* --- Verdicts --- */
+      .verdict { background: rgba(15,15,15,0.9); border-radius: 20px; padding: 44px 32px; text-align: center; border: 1px solid rgba(255,255,255,0.14); display: none; }
+      .verdict.in { display: block; animation: fadeInUp 0.5s cubic-bezier(0.16,1,0.3,1) both; }
+      @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+      .verdict-badge { width: 64px; height: 64px; border-radius: 999px; background: rgba(48,150,255,0.16); border: 1px solid rgba(48,150,255,0.5); display: flex; align-items: center; justify-content: center; margin: 0 auto 22px; }
+      .verdict-badge svg { width: 28px; height: 28px; stroke: #fff; }
+      .verdict-title { font-size: clamp(26px, 3vw, 34px); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 12px; }
+      .verdict-sub { color: rgba(255,255,255,0.72); font-size: 15px; max-width: 34em; margin: 0 auto 28px; }
+      .verdict-cta { display: inline-flex; align-items: center; justify-content: center; background: #fff; color: #000; font-weight: 600; font-size: 15px; padding: 16px 40px; border-radius: 60px; transition: all 0.2s; }
+      .verdict-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(255,255,255,0.18); }
+      .verdict-alt { display: block; margin-top: 16px; color: rgba(255,255,255,0.5); font-size: 13px; }
+      .verdict-alt a { text-decoration: underline; text-underline-offset: 3px; }
+      .verdict-alt a:hover { color: #fff; }
+
+      .loading-hide { display: none !important; }
+      .loader { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 1700; background: #060606; display: flex; align-items: center; justify-content: center; transition: opacity 0.5s ease, visibility 0.5s ease; }
+      .loader.hide { opacity: 0; visibility: hidden; }
+      .loader-text { font-family: 'Inter', sans-serif; font-weight: 600; color: rgba(153,153,153,0.65); letter-spacing: -0.08px; font-size: 16px; background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.85) 50%, transparent 100%); background-size: 152px 100%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 2.166s linear infinite; }
+      @keyframes shimmer { 0% { background-position: -152px 0; } 100% { background-position: 152px 0; } }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loader" id="loader"><p class="loader-text">Patience—you're about to be impressed.</p></div>
+
+    <div class="app-shell" id="app">
+      <aside class="sidebar">
+        <a href="/" class="brand-serif sidebar-brand">thecodingcompany</a>
+        <nav class="sidebar-nav">
+          <a href="/" class="sidebar-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 10.5 12 3l9 7.5M5 9.5V21h5v-6h4v6h5V9.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="label">Home</span></a>
+          <a href="/bootcamps" class="sidebar-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19V6m0 13c0 1.1 4.5 2 10 2V8c-5.5 0-10 .9-10 2m0 9H3m2 0c0 1.1 4.5 2 10 2M6 8v11" stroke-linecap="round" stroke-linejoin="round"/><path d="m13 4 1.2 2.8L17 8l-2.8 1.2L13 12l-1.2-2.8L9 8l2.8-1.2L13 4z" fill="currentColor" stroke="none"/></svg><span class="label">Bootcamps</span></a>
+          <a href="/vybeclub" class="sidebar-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M8 21h8m-4-5v5M12 4a5 5 0 0 1 5 5c0 2.1-1.3 3.9-3 4.7V16H10v-2.3c-1.7-.8-3-2.6-3-4.7a5 5 0 0 1 5-5z" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="label">100 Club</span></a>
+          <a href="/domains" class="sidebar-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span class="label">Domains</span></a>
+          <a href="/gigs" class="sidebar-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18" stroke-linecap="round"/></svg><span class="label">Gigs</span></a>
+        </nav>
+        <div class="sidebar-bottom">
+          <a href="/webinars" class="sidebar-webinars"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10 9 5 3-5 3V9z" fill="currentColor" stroke="none"/></svg>Webinars</a>
+          <a href="/login" class="btn-login">Member Login</a>
+        </div>
+      </aside>
+
+      <main class="main-scroll">
+        <header class="mobile-header">
+          <a href="/" class="brand-serif mobile-brand">thecodingcompany</a>
+          <div class="mobile-actions">
+            <a href="/login" class="mobile-login" aria-label="Login"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6" stroke-linecap="round"/></svg></a>
+            <button class="mobile-cta" type="button" onclick="window.location.href='/become-a-member'">Become a member</button>
+          </div>
+        </header>
+
+        <div class="content-wrap">
+          <section class="apply-hero">
+            <div class="apply-glow"></div>
+            <div class="apply-fade"></div>
+            <div class="apply-content">
+              <div class="reveal">
+                <p class="apply-eyebrow">Become a member</p>
+                <h1 class="apply-h1">Apply and get <span class="serif-i">vetted</span>.</h1>
+                <p class="apply-sub">Our AI agent evaluates your professional profile &amp; gives you an <span class="serif-i">instant decision</span>. We optimise for fit, not volume.</p>
+              </div>
+
+              <form id="applyForm" class="apply-card reveal" novalidate>
+                <div class="apply-steps">
+                  <div class="apply-step">1</div><div class="apply-step-line"></div>
+                  <div class="apply-step">2</div><div class="apply-step-line"></div>
+                  <div class="apply-step">3</div>
+                </div>
+                <div class="field">
+                  <label for="f-name">Full name</label>
+                  <input id="f-name" name="name" type="text" placeholder="Jane Doe" required />
+                </div>
+                <div class="field">
+                  <label for="f-email">Work email</label>
+                  <input id="f-email" name="email" type="email" placeholder="jane@company.com" required />
+                </div>
+                <div class="field">
+                  <label for="f-company">Current company</label>
+                  <input id="f-company" name="company" type="text" placeholder="Where do you work?" required />
+                </div>
+                <div class="field">
+                  <label for="f-role">Current role</label>
+                  <input id="f-role" name="role" type="text" placeholder="e.g. Product Manager, Founder, Engineer" required />
+                </div>
+                <div class="field">
+                  <label for="f-exp">Years of experience</label>
+                  <select id="f-exp" name="experience" required>
+                    <option value="" disabled selected>Select your experience</option>
+                    <option value="0-2">0 – 2 years</option>
+                    <option value="3-5">3 – 5 years</option>
+                    <option value="6-9">6 – 9 years</option>
+                    <option value="10+">10+ years</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="f-city">City</label>
+                  <input id="f-city" name="city" type="text" placeholder="Bengaluru, Delhi, Mumbai, …" />
+                </div>
+                <div class="field">
+                  <label for="f-link">LinkedIn / profile URL <span style="opacity:0.5;text-transform:none;letter-spacing:0">(optional)</span></label>
+                  <input id="f-link" name="linkedin" type="url" placeholder="linkedin.com/in/janedoe" />
+                </div>
+                <div class="field">
+                  <label for="f-mission">What do you want to build?</label>
+                  <textarea id="f-mission" name="mission" placeholder="In one line — what problem are you going to ship with AI?"></textarea>
+                </div>
+                <button class="btn-primary apply-submit" type="submit">Apply and get vetted</button>
+                <p class="apply-note">Now accepting applications. Fit is evaluated instantly, volume isn&rsquo;t a metric we chase. Questions? <a href="mailto:admissions@thecodingcompany.com">admissions@thecodingcompany.com</a></p>
+              </form>
+
+              <div class="eval-card reveal" id="evalCard">
+                <div class="eval-spinner"></div>
+                <p class="eval-title">Evaluating your professional profile</p>
+                <p class="eval-status" id="evalStatus">Checking fit…</p>
+              </div>
+
+              <div class="verdict" id="verdict">
+                <div class="verdict-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4.5 12.5 9.5 17.5 19.5 6.5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <h2 class="verdict-title">You look like a fit.</h2>
+                <p class="verdict-sub">Your profile is exactly the kind we want in the room. Your seat is reserved — continue to secure your membership and pick a program that matches your goal.</p>
+                <a class="verdict-cta" href="/bootcamps">Continue to membership</a>
+                <span class="verdict-alt">First, explore what&rsquo;s inside &rarr; <a href="/bootcamps">View bootcamps</a></span>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <nav class="bottom-nav">
+        <div class="bottom-nav-inner">
+
+          <a href="/" class="bottom-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 10.5 12 3l9 7.5M5 9.5V21h5v-6h4v6h5V9.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Home</span></a>
+
+          <a href="/bootcamps" class="bottom-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19V6m0 13c0 1.1 4.5 2 10 2V8c-5.5 0-10 .9-10 2m0 9H3m2 0c0 1.1 4.5 2 10 2M6 8v11" stroke-linecap="round" stroke-linejoin="round"/><path d="m13 4 1.2 2.8L17 8l-2.8 1.2L13 12l-1.2-2.8L9 8l2.8-1.2L13 4z" fill="currentColor" stroke="none"/></svg><span>Bootcamps</span></a>
+
+          <a href="/vybeclub" class="bottom-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M8 21h8m-4-5v5M12 4a5 5 0 0 1 5 5c0 2.1-1.3 3.9-3 4.7V16H10v-2.3c-1.7-.8-3-2.6-3-4.7a5 5 0 0 1 5-5z" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Club</span></a>
+
+          <a href="/domains" class="bottom-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Domains</span></a>
+
+          <a href="/gigs" class="bottom-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18" stroke-linecap="round"/></svg><span>Gigs</span></a>
+
+          <a href="/webinars" class="bottom-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10 9 5 3-5 3V9z" fill="currentColor" stroke="none"/></svg><span>Webinars</span></a>
+
+          </div>
+      </nav>
+
+    </div>
+
+    <script>
+      (function () {
+        var loader = document.getElementById('loader');
+        window.addEventListener('load', function () { setTimeout(function () { loader.classList.add('hide'); }, 400); });
+        setTimeout(function () { loader.classList.add('hide'); }, 3000);
+
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+        var form = document.getElementById('applyForm');
+        var evalCard = document.getElementById('evalCard');
+        var evalStatus = document.getElementById('evalStatus');
+        var verdict = document.getElementById('verdict');
+
+        var statuses = ['Reading your profile…', 'Cross-checking experience…', 'Estimating fit…', 'Finalising…'];
+
+        function toBackend(payload) {
+          return fetch('/api/forms', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          }).catch(function (err) { console.error('Form submit failed:', err); });
+        }
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          if (!form.checkValidity()) { form.reportValidity(); return; }
+          var payload = {
+            form_type: 'become-a-member',
+            name: document.getElementById('f-name').value || '',
+            email: document.getElementById('f-email').value || '',
+            company: document.getElementById('f-company').value || '',
+            role: document.getElementById('f-role').value || '',
+            experience: document.getElementById('f-exp').value || '',
+            city: document.getElementById('f-city').value || '',
+            linkedin: document.getElementById('f-link').value || '',
+            mission: document.getElementById('f-mission').value || ''
+          };
+          toBackend(payload);
+          form.classList.add('loading-hide');
+          evalCard.classList.add('in');
+          evalCard.style.display = 'block';
+          var i = 0;
+          var ticker = setInterval(function () {
+            if (i < statuses.length) { evalStatus.textContent = statuses[i]; i++; }
+          }, 900);
+          setTimeout(function () {
+            clearInterval(ticker);
+            evalCard.style.display = 'none';
+            verdict.classList.add('in');
+          }, 4200);
+        });
+      })();
+    </script>
+  </body>
+</html>

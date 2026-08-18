@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hire Student Talent | The Coding Company</title>
+    <meta name="description" content="Hire vetted student freelancers from The Coding Company. Founder-led quality, on-time delivery, every time." />
+    <meta name="author" content="The Coding Company" />
+    <link rel="canonical" href="https://thecodingcompany.com/gigs/hire" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#050505" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;700;800&family=DM+Mono:wght@300;400;500&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;700;800&family=DM+Mono:wght@300;400;500&display=swap" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { background: #050505; }
+      body { color: #fff; font-family: 'Inter', system-ui, sans-serif; font-weight: 400; line-height: 1.5; }
+      button, input, textarea, select { font-family: inherit; }
+      a { color: inherit; text-decoration: none; }
+      h1 { font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: -0.04em; }
+      .serif { font-family: 'Instrument Serif', serif; font-weight: 400; letter-spacing: -0.02em; }
+      .serif-i { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
+      .mono { font-family: 'DM Mono', 'Roboto Mono', monospace; }
+
+      .topbar { position: sticky; top: 0; z-index: 100; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; }
+      .brand-serif { font-family: 'Instrument Serif', serif; font-weight: 700; letter-spacing: -0.01em; font-size: 24px; color: rgba(255,255,255,0.9); }
+      .top-cta { font-size: 12px; font-weight: 600; background: #0064FF; color: #fff; border: 0; border-radius: 999px; padding: 9px 16px; cursor: pointer; transition: background 0.2s; }
+      .top-cta:hover { background: rgb(0,70,178); }
+
+      .apply { min-height: calc(100vh - 70px); padding: 40px 24px 80px; display: flex; flex-direction: column; align-items: center; }
+      .apply-head { text-align: center; margin-bottom: 44px; max-width: 720px; }
+      .apply-pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 999px; padding: 9px 20px; font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+      .apply-pill .dot { width: 8px; height: 8px; border-radius: 999px; background: #4D8DFF; animation: pulse 1.6s ease-in-out infinite; }
+      @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+      .apply-h1 { font-size: clamp(30px, 5vw, 56px); letter-spacing: -0.04em; line-height: 1.05; }
+      .apply-h1 em { color: #4D8DFF; }
+      .apply-sub { margin-top: 16px; color: rgba(255,255,255,0.5); font-size: 16px; max-width: 560px; margin-left: auto; margin-right: auto; }
+
+      .apply-card { width: 100%; max-width: 620px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 36px; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+      .card-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.3); font-weight: 700; margin-bottom: 28px; }
+      .field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
+      .field span { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 700; }
+      .field input,
+      .field textarea,
+      .field select { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 14px 16px; color: #fff; font-family: 'Inter', sans-serif; font-size: 14px; outline: none; transition: border-color 0.3s, background 0.3s; width: 100%; resize: vertical; }
+      .field textarea { min-height: 96px; }
+      .field select option { background: #111; color: #fff; }
+      .field input:focus,
+      .field textarea:focus,
+      .field select:focus { border-color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.06); }
+      .field input::placeholder,
+      .field textarea::placeholder { color: rgba(255,255,255,0.25); }
+      .form-grid { display: grid; grid-template-columns: 1fr; gap: 0 14px; }
+      @media (min-width: 560px) { .form-grid { grid-template-columns: 1fr 1fr; } }
+
+      .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #0057DE; color: #fff; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; letter-spacing: -0.01em; white-space: nowrap; border: 0; border-radius: 999px; padding: 16px 32px; box-shadow: 0 4px 20px rgba(0,87,222,0.4); cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease; width: 100%; margin-top: 8px; }
+      .btn:hover { transform: scale(1.02); background: #0A63EA; }
+      .btn svg { width: 16px; height: 16px; }
+      .btn:disabled { opacity: 0.6; cursor: default; transform: none; }
+      .form-status { margin-top: 16px; text-align: center; font-size: 14px; min-height: 22px; color: rgba(255,255,255,0.6); }
+      .form-status.ok { color: #4DDF8D; }
+      .form-status.err { color: #E5352B; }
+      .back-link { display: block; text-align: center; margin-top: 32px; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.4); transition: color 0.3s; }
+      .back-link:hover { color: rgba(255,255,255,0.7); }
+      .apply-note { margin-top: 40px; text-align: center; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <a href="/" class="brand-serif">thecodingcompany</a>
+      <a href="/gigs" class="top-cta">Back to Gigs</a>
+    </header>
+
+    <main class="apply">
+      <div class="apply-head">
+        <div class="apply-pill"><span class="dot"></span>Hire · The Crew</div>
+        <h1 class="apply-h1">Hire builders who <em class="serif-i">ship.</em></h1>
+        <p class="apply-sub">Vetted student freelancers from the top 15% of applicants. Founder-led quality, on-time delivery, on-time payment terms. Tell us what you need built.</p>
+      </div>
+
+      <div class="apply-card">
+        <div class="card-label">Hiring Request Form</div>
+        <form id="hireForm" novalidate>
+          <div class="form-grid">
+            <label class="field"><span>Name</span><input type="text" id="f-name" name="name" required autocomplete="name" placeholder="Your name" /></label>
+            <label class="field"><span>Company</span><input type="text" id="f-company" name="company" required placeholder="Your company / startup" /></label>
+          </div>
+          <label class="field"><span>Work Email</span><input type="email" id="f-email" name="email" required autocomplete="email" placeholder="you@company.com" /></label>
+          <label class="field"><span>What do you need built?</span>
+            <select id="f-need" name="need" required>
+              <option value="">Select…</option>
+              <option>AI / LLM Tools</option>
+              <option>Web Development</option>
+              <option>Data &amp; Automation</option>
+              <option>Design / Creative</option>
+              <option>Content / Writing</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label class="field"><span>Project details</span><textarea id="f-project" name="project" required placeholder="What are you building, what's the scope, and what does good look like?" /></label>
+          <div class="form-grid">
+            <label class="field"><span>Budget range</span>
+              <select id="f-budget" name="budget">
+                <option value="">Select…</option>
+                <option>Under ₹25k</option>
+                <option>₹25k – ₹1L</option>
+                <option>₹1L – ₹5L</option>
+                <option>₹5L+</option>
+              </select>
+            </label>
+            <label class="field"><span>Timeline</span>
+              <select id="f-timeline" name="timeline">
+                <option value="">Select…</option>
+                <option>ASAP</option>
+                <option>1 – 2 weeks</option>
+                <option>1 month</option>
+                <option>Flexible</option>
+              </select>
+            </label>
+          </div>
+          <button type="submit" class="btn" id="submitBtn">Submit Request <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
+          <p class="form-status" id="formStatus"></p>
+        </form>
+      </div>
+
+      <a href="/gigs" class="back-link">← Back to Gigs</a>
+      <p class="apply-note">Every crew member is vetted. Every payment is on time, or we cover it.</p>
+    </main>
+
+    <script>
+      var form = document.getElementById('hireForm');
+      var btn = document.getElementById('submitBtn');
+      var status = document.getElementById('formStatus');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+        var old = btn.innerHTML;
+        btn.innerHTML = 'Submitting…';
+        btn.disabled = true;
+        status.className = 'form-status';
+        status.textContent = '';
+        var payload = {
+          form_type: 'gigs-hire',
+          name: document.getElementById('f-name').value || '',
+          email: document.getElementById('f-email').value || '',
+          company: document.getElementById('f-company').value || '',
+          need: document.getElementById('f-need').value || '',
+          project: document.getElementById('f-project').value || '',
+          budget: document.getElementById('f-budget').value || '',
+          timeline: document.getElementById('f-timeline').value || ''
+        };
+        fetch('/api/forms', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }).then(function () {
+          form.reset();
+          status.className = 'form-status ok';
+          status.textContent = "Request received. We'll line up the right crew and reply within 48 hours.";
+        }).catch(function () {
+          status.className = 'form-status err';
+          status.textContent = 'Something broke. Try again or email us directly.';
+        }).finally(function () {
+          btn.innerHTML = old;
+          btn.disabled = false;
+        });
+      });
+    </script>
+  </body>
+</html>

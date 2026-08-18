@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Member Login | The Coding Company</title>
+    <meta name="description" content="Sign in to your member account, or apply to become a member of The Coding Company." />
+    <link rel="canonical" href="https://thecodingcompany.com/login" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#050505" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;700;800&family=DM+Mono:wght@300;400;500&display=swap" />
+    <meta property="og:title" content="Member Login | The Coding Company" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/vs-ig-posts-youtube-thumbnail.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/tcc-favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/tcc-favicon-96.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { background: #050505; min-height: 100%; }
+      body { color: #fff; font-family: 'Inter', system-ui, sans-serif; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+      button, input { font-family: inherit; }
+      a { color: inherit; text-decoration: none; }
+      .serif { font-family: 'Instrument Serif', serif; font-weight: 400; letter-spacing: -0.02em; }
+      .serif-i { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
+      .mono { font-family: 'DM Mono', monospace; }
+
+      header { position: sticky; top: 0; z-index: 100; padding: 14px 22px; display: flex; align-items: center; justify-content: space-between; }
+      .brand { font-family: 'Instrument Serif', serif; font-weight: 700; letter-spacing: -0.01em; font-size: 23px; color: rgba(255,255,255,0.9); }
+      .exit { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(255,255,255,0.4); transition: color 0.3s; }
+      .exit:hover { color: #fff; }
+
+      .wrap { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 48px 20px 72px; }
+      .card { width: 100%; max-width: 440px; }
+
+      .tabs { display: flex; gap: 18px; margin-bottom: 34px; align-items: baseline; justify-content: center; }
+      .tab { background: none; border: 0; cursor: pointer; font-family: 'Instrument Serif', serif; font-size: 32px; letter-spacing: -0.02em; color: rgba(255,255,255,0.2); transition: color 0.4s; padding: 0; }
+      .tab.active { color: #fff; }
+      .tab-sep { color: rgba(255,255,255,0.1); font-size: 20px; }
+
+      .field { margin-bottom: 18px; }
+      .field label { display: block; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 700; margin-bottom: 8px; margin-left: 2px; }
+      .field input { width: 100%; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 15px 18px; color: #fff; font-size: 15px; outline: none; transition: border-color 0.3s, background 0.3s; }
+      .field input:focus { border-color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.06); }
+      .field input::placeholder { color: rgba(255,255,255,0.22); }
+      .field .err { color: #E5352B; font-size: 12px; margin-top: 6px; }
+
+      .btn { width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #fff; color: #050505; font-weight: 700; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; border: 0; border-radius: 999px; padding: 17px 24px; cursor: pointer; transition: all 0.25s; margin-top: 10px; }
+      .btn:hover { transform: scale(1.02); box-shadow: 0 6px 30px rgba(255,255,255,0.2); }
+      .btn.primary { background: #0057DE; color: #fff; box-shadow: 0 4px 20px rgba(0,87,222,0.4); }
+      .btn.primary:hover { background: #0A63EA; }
+      .btn:disabled { opacity: 0.55; cursor: default; transform: none; }
+
+      .status { margin-top: 16px; text-align: center; font-size: 13px; min-height: 20px; color: rgba(255,255,255,0.55); }
+      .status.ok { color: #4DDF8D; }
+      .status.err { color: #E5352B; }
+
+      .fine { margin-top: 22px; text-align: center; font-size: 12px; color: rgba(255,255,255,0.35); }
+      .fine a { color: rgba(255,255,255,0.6); text-decoration: underline; text-underline-offset: 3px; }
+
+      .bottom { margin-top: 56px; text-align: center; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.2); }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="/" class="brand">thecodingcompany</a>
+      <a href="/" class="exit">← Exit</a>
+    </header>
+
+    <main class="wrap">
+      <div class="card">
+        <div class="tabs">
+          <button class="tab active" id="tabSignin" type="button">Sign In</button>
+          <span class="tab-sep">/</span>
+          <button class="tab" id="tabApply" type="button">Apply</button>
+        </div>
+
+        <form id="loginForm" novalidate>
+          <div class="field" id="nameField" style="display:none">
+            <label for="f-name">Legal Name</label>
+            <input type="text" id="f-name" name="name" placeholder="Your name" autocomplete="name" />
+            <div class="err" id="err-name" hidden></div>
+          </div>
+          <div class="field">
+            <label for="f-email">Email Address</label>
+            <input type="email" id="f-email" name="email" placeholder="address@domain.com" autocomplete="email" />
+            <div class="err" id="err-email" hidden></div>
+          </div>
+          <div class="field">
+            <label for="f-pass"></label>
+            <input type="password" id="f-pass" name="passkey" minlength="6" placeholder="••••••••" autocomplete="current-password" />
+            <div class="err" id="err-pass" hidden></div>
+          </div>
+          <button type="submit" class="btn primary" id="submitBtn">Sign In</button>
+          <p class="status" id="status"></p>
+        </form>
+
+        <p class="fine">Forgot your passkey? <a href="mailto:support@thecodingcompany.com?subject=Passkey reset">Request a reset</a></p>
+      </div>
+      <p class="bottom">WARNING: High probability of becoming a Founder</p>
+    </main>
+
+    <script>
+      var mode = 'signin';
+      var tabSignin = document.getElementById('tabSignin');
+      var tabApply = document.getElementById('tabApply');
+      var nameField = document.getElementById('nameField');
+      var emailInput = document.getElementById('f-email');
+      var passInput = document.getElementById('f-pass');
+      var submitBtn = document.getElementById('submitBtn');
+      var status = document.getElementById('status');
+      var form = document.getElementById('loginForm');
+
+      function setMode(m) {
+        mode = m;
+        tabSignin.classList.toggle('active', m === 'signin');
+        tabApply.classList.toggle('active', m === 'apply');
+        nameField.style.display = m === 'apply' ? 'block' : 'none';
+        submitBtn.textContent = m === 'signin' ? 'Sign In' : 'Submit Profile';
+      }
+      tabSignin.addEventListener('click', function () { setMode('signin'); });
+      tabApply.addEventListener('click', function () { setMode('apply'); });
+
+      function fieldError(id, msg) {
+        var el = document.getElementById(id);
+        el.textContent = msg;
+        el.hidden = !msg;
+        return function clear() { el.textContent = ''; el.hidden = true; };
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var ok = true;
+        var email = emailInput.value.trim();
+        var pass = passInput.value;
+        var name = nameField.querySelector('input').value.trim();
+        var clears = [fieldError('err-email',''), fieldError('err-pass',''), fieldError('err-name','')];
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { fieldError('err-email','Enter a valid email'); ok = false; }
+        else clears[0]();
+        if (pass.length < 6) { fieldError('err-pass','Passkey must be at least 6 characters'); ok = false; }
+        else clears[1]();
+        if (mode === 'apply') {
+          if (!name) { fieldError('err-name','Name is required'); if (ok) ok = false; }
+          else clears[2]();
+        }
+        if (!ok) return;
+
+        submitBtn.disabled = true;
+        var original = submitBtn.textContent;
+        submitBtn.textContent = mode === 'signin' ? 'Authenticating…' : 'Submitting…';
+        status.className = 'status';
+        status.textContent = '';
+
+        var payload = { email: email, passkey: pass };
+        if (mode === 'apply') payload.name = name;
+
+        fetch('/api/' + (mode === 'signin' ? 'login' : 'register'), {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }).then(function (res) {
+          return res.json().then(function (data) { return { ok: res.ok, data: data }; });
+        }).then(function (r) {
+          if (!r.ok) throw new Error(r.data.error || 'Request failed');
+          status.className = 'status ok';
+          status.textContent = mode === 'signin' ? 'Welcome back.' : 'Account created. Welcome.';
+          setTimeout(function () { window.location.href = '/member'; }, 700);
+        }).catch(function (err) {
+          status.className = 'status err';
+          status.textContent = err.message;
+          submitBtn.disabled = false;
+          submitBtn.textContent = original;
+        });
+      });
+    </script>
+  </body>
+</html>

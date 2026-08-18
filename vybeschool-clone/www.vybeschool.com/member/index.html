@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Member Dashboard | The Coding Company</title>
+    <link rel="canonical" href="https://thecodingcompany.com/member" />
+    <meta name="theme-color" content="#050505" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;700;800&family=DM+Mono:wght@300;400;500&display=swap" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { background: #050505; }
+      body { color: #fff; font-family: 'Inter', system-ui, sans-serif; line-height: 1.5; }
+      button, a { font-family: inherit; }
+      a { color: inherit; }
+      .serif { font-family: 'Instrument Serif', serif; font-weight: 400; letter-spacing: -0.02em; }
+      .mono { font-family: 'DM Mono', monospace; }
+
+      header { padding: 14px 22px; display: flex; align-items: center; justify-content: space-between; }
+      .brand { font-family: 'Instrument Serif', serif; font-weight: 700; letter-spacing: -0.01em; font-size: 23px; color: rgba(255,255,255,0.9); text-decoration: none; }
+
+      .dash { max-width: 760px; margin: 40px auto 80px; padding: 0 22px; }
+      .eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+      .greet { font-size: clamp(28px, 4.6vw, 44px); font-weight: 800; letter-spacing: -0.04em; margin-top: 8px; }
+      .sub { color: rgba(255,255,255,0.45); font-size: 15px; margin-top: 8px; max-width: 34em; }
+
+      .grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 40px; }
+      @media (min-width: 640px) { .grid { grid-template-columns: 1fr 1fr; } }
+      .card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.09); border-radius: 18px; padding: 24px; }
+      .card h3 { font-size: 14px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 10px; }
+      .card .val { font-size: 13px; color: rgba(255,255,255,0.55); word-break: break-all; }
+
+      .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+      .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 999px; padding: 13px 26px; font-size: 13px; font-weight: 700; text-decoration: none; cursor: pointer; border: 0; transition: all 0.25s; }
+      .btn-primary { background: #0057DE; color: #fff; }
+      .btn-primary:hover { background: #0A63EA; }
+      .btn-ghost { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.12); }
+      .btn-ghost:hover { background: rgba(255,255,255,0.12); }
+      .btn-ghost.danger:hover { border-color: #E5352B; color: #E5352B; }
+
+      .status { margin-top: 26px; text-align: center; font-size: 13px; color: rgba(255,255,255,0.5); }
+      .guest-box { max-width: 480px; margin: 100px auto; text-align: center; padding: 24px; }
+      .guest-box h1 { font-size: clamp(26px, 4vw, 38px); font-weight: 800; letter-spacing: -0.04em; }
+      .guest-box p { color: rgba(255,255,255,0.45); margin: 14px 0 28px; }
+      .admin-link { display: inline-block; margin-top: 24px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="/" class="brand">thecodingcompany</a>
+      <a href="/logout" id="logoutLink" class="eyebrow" style="text-decoration:none;cursor:pointer">Sign Out →</a>
+    </header>
+
+    <main id="view"></main>
+
+    <script>
+      var view = document.getElementById('view');
+
+      fetch('/api/me', { credentials: 'include' })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (!data.member) {
+            view.innerHTML =
+              '<div class="guest-box"><h1>Not signed in.</h1>' +
+              '<p>You need a member account to access your dashboard.</p>' +
+              '<a class="btn btn-primary" href="/login">Sign In / Apply</a>' +
+              '<br/><a class="admin-link" href="/admin">Admin?</a></div>';
+            return;
+          }
+          var m = data.member;
+          var adminCta = m.role === 'admin' ? '<a class="btn btn-ghost" href="/admin">Admin Panel</a>' : '';
+          view.innerHTML =
+            '<div class="dash">' +
+              '<div class="eyebrow">Member Dashboard</div>' +
+              '<h1 class="greet">Hey, ' + m.name + '.</h1>' +
+              '<p class="sub">Welcome back to The Coding Company. Your account is active and secure.</p>' +
+              '<div class="grid">' +
+                '<div class="card"><h3>Email</h3><div class="val" id="emailVal">' + m.email + '</div></div>' +
+                '<div class="card"><h3>Role</h3><div class="val">' + m.role + '</div></div>' +
+                '<div class="card"><h3>Member ID</h3><div class="val">#' + m.id + '</div></div>' +
+                '<div class="card"><h3>Status</h3><div class="val" style="color:#4DDF8D">Active</div></div>' +
+              '</div>' +
+              '<div class="actions">' +
+                '<a class="btn btn-primary" href="/vybeclub">Visit 100 Club</a>' +
+                '<a class="btn btn-ghost" href="/bootcamps">Bootcamps</a>' + adminCta +
+                '<button class="btn btn-ghost danger" id="logoutBtn">Sign Out</button>' +
+              '</div>' +
+            '</div>';
+          var lb = document.getElementById('logoutLink');
+          lb.addEventListener('click', function (e) { e.preventDefault(); signOut(); });
+          document.getElementById('logoutBtn').addEventListener('click', signOut);
+        })
+        .catch(function () {
+          view.innerHTML = '<div class="status">Temporarily unavailable. Try again shortly.</div>';
+        });
+
+      function signOut() {
+        fetch('/api/logout', { method: 'POST', credentials: 'include' })
+          .finally(function () { window.location.href = '/'; });
+      }
+    </script>
+  </body>
+</html>

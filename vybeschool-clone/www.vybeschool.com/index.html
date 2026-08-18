@@ -1,0 +1,790 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Global Community of AI Builders | The Coding Company</title>
+    <meta name="description" content="A 4-day AI program plus a year of live expert sessions, weekend build events and real AI credits. Join the builder community." />
+    <meta property="og:title" content="AI Learning Community for Ambitious Professionals | The Coding Company" />
+    <meta property="og:description" content="Learn to build AI with the people already ahead. 4-day program, live expert sessions, build events and AI credits." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/vs-ig-posts-youtube-thumbnail.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://thecodingcompany.com" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/tcc-favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/tcc-favicon-96.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/tcc-apple-touch.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" />
+    <style>
+      /* ── Base ── */
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+      body { background: #050505; color: #fff; font-family: 'Inter', system-ui, sans-serif; font-weight: 400; line-height: 1.5; overflow: hidden; }
+      img { display: block; max-width: 100%; }
+      a { color: inherit; text-decoration: none; }
+      button { font-family: inherit; cursor: pointer; }
+
+      /* growthx fluid type baseline */
+      .baseline-root { --baseline-font: calc((16px + (100vw - 360px) * 4 / 360) / 16); }
+
+      h1, h2, .font-extra { font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: -0.04em; }
+      .serif-i { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
+      .mono { font-family: 'DM Mono', 'Roboto Mono', monospace; }
+
+      /* ════════════════ TCC NAV LAYOUT ════════════════ */
+      .app-shell { height: 100dvh; overflow: hidden; display: flex; background: #050505; }
+
+      /* Desktop sidebar (matches TCC aside) */
+      .sidebar {
+        display: none;
+        width: 200px;
+        min-height: 100%;
+        padding: 24px 16px;
+        flex-direction: column;
+        flex-shrink: 0;
+        border-right: 1px solid rgba(255,255,255,0.05);
+        background: #050505;
+        overflow-y: auto; overflow-x: hidden;
+      }
+      @media (min-width: 768px) { .sidebar { display: flex; } }
+      .sidebar-link { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 12px; font-size: 14px; color: rgba(255,255,255,0.4); transition: all 0.3s; position: relative; }
+      .sidebar-link svg { width: 18px; height: 18px; flex-shrink: 0; stroke-width: 1.5; }
+      .sidebar-link:hover { color: #fff; background: rgba(255,255,255,0.05); }
+      .sidebar-link.active { color: #fff; background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.12), transparent 70%); mask-image: linear-gradient(to right, black 40%, transparent 100%); -webkit-mask-image: linear-gradient(to right, black 40%, transparent 100%); }
+      .sidebar-link.active svg { filter: drop-shadow(0 0 8px rgba(255,255,255,0.6)); }
+      .sidebar-link .label { font-weight: 500; letter-spacing: 0.01em; }
+      .sidebar-nav { margin-top: 25vh; }
+      .sidebar-bottom { margin-top: auto; display: flex; flex-direction: column; gap: 12px; }
+      .sidebar-webinars { display: flex; align-items: center; gap: 12px; padding: 12px 4px; color: rgba(255,255,255,0.4); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.25em; transition: color 0.3s; }
+      .sidebar-webinars:hover { color: #fff; }
+      .sidebar-webinars svg { width: 16px; height: 16px; stroke-width: 1.5; }
+      .btn-login {
+        display: flex; align-items: center; justify-content: center; gap: 8px;
+        background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 12px; padding: 12px 20px; font-size: 13px; color: rgba(255,255,255,0.8);
+        font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase;
+        transition: all 0.3s;
+      }
+      .btn-login:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff; }
+      .btn-login-icon { display: none; width: 18px; height: 18px; flex-shrink: 0; }
+      .btn-login-label { white-space: nowrap; }
+      .brand-serif { font-family: 'Instrument Serif', serif; font-weight: 700; letter-spacing: -0.01em; }
+      .sidebar-brand { font-size: 21px; padding: 0 8px; margin-bottom: 24px; transition: all 0.3s; }
+      .sidebar-brand:hover { text-shadow: 0 0 16px rgba(255,255,255,0.4); }
+
+      /* Scrollable main */
+      .main-scroll { flex: 1; height: 100%; overflow-y: auto; overflow-x: hidden; position: relative; }
+
+      /* Mobile top header (matches TCC header) */
+      .mobile-header {
+        display: flex;
+        position: sticky; top: 0; left: 0; right: 0; z-index: 110;
+        padding: 8px 16px; align-items: center; justify-content: space-between;
+        background: rgba(6,6,6,0.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+      }
+      @media (min-width: 768px) { .mobile-header { display: none; } }
+      .mobile-brand { font-size: 19px; }
+      .mobile-actions { display: flex; align-items: center; gap: 10px; }
+      .mobile-login { width: 40px; height: 40px; border-radius: 999px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); transition: all 0.3s; }
+      .mobile-login:hover { background: rgba(255,255,255,0.15); }
+      .mobile-login svg { width: 20px; height: 20px; stroke-width: 1.5; }
+      .mobile-cta { font-size: 12px; font-weight: 600; background: #0064FF; color: #fff; border: 0; border-radius: 999px; padding: 9px 16px; white-space: nowrap; transition: background 0.2s; }
+      .mobile-cta:hover { background: rgb(0,70,178); }
+      @media (max-width: 360px) { .mobile-header { padding: 8px 12px; gap: 8px; } .mobile-brand { font-size: 17px; } .mobile-cta { font-size: 11px; padding: 8px 12px; } }
+
+      /* Desktop top bar (matches growthx header: fixed right, 64px, scroll-reveal) */
+      .topbar {
+        display: none;
+        position: fixed; top: 0; right: 0; left: 200px; height: 64px; z-index: 120;
+        align-items: center; justify-content: flex-end;
+        padding: 10px 20px;
+        background: rgba(6,6,6,0.98); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+        border-bottom: 1px solid #1F1F1F;
+        opacity: 0; transform: translateY(-100%);
+        transition: all 0.25s ease-in-out;
+      }
+      @media (min-width: 768px) { .topbar { display: flex; } }
+      .topbar.visible { opacity: 1; transform: translateY(0); }
+      .topbar-cta {
+        font-size: 14px; font-weight: 600; font-family: 'Inter', sans-serif;
+        background: #0064FF; color: #fff; border: 0; border-radius: 6px;
+        padding: 8px 18px; width: max-content; white-space: nowrap;
+        transition: background 0.2s; cursor: pointer;
+      }
+      .topbar-cta:hover { background: rgb(0,70,178); }
+
+      /* ── Collapsible sidebar (growthx: 200px open ⇄ 64px icon rail) ── */
+      .sidebar { position: sticky; top: 0; transition: width 0.2s ease-in-out; }
+      .sidebar-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 0 4px 0 8px; margin-bottom: 24px; }
+      .sidebar-head .sidebar-brand { margin-bottom: 0; flex: 1; min-width: 0; overflow: hidden; white-space: nowrap; }
+      .sidebar-mark, .sidebar-toggle { display: none; }
+      .sidebar-toggle svg { width: 16px; height: 16px; }
+      .sidebar-toggle svg path { opacity: 0.4; transition: opacity 0.2s; }
+      .sidebar-toggle:hover { color: #fff; background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.16); }
+      .sidebar-toggle:hover svg path { opacity: 1; }
+
+      body.sidebar-collapsed .sidebar { width: 64px; padding: 24px 8px; }
+      body.sidebar-collapsed .sidebar-head { justify-content: center; padding: 0; }
+      body.sidebar-collapsed .sidebar-head .sidebar-brand { display: none; }
+      body.sidebar-collapsed .sidebar-toggle { display: none; }
+      body.sidebar-collapsed .sidebar-mark { display: block; }
+      body.sidebar-collapsed .sidebar-link { justify-content: center; gap: 0; padding: 12px 0; }
+      body.sidebar-collapsed .sidebar-link .label { display: none; }
+      body.sidebar-collapsed .sidebar-webinars { justify-content: center; padding: 12px 0; }
+      body.sidebar-collapsed .sidebar-webinars > span { display: none; }
+      body.sidebar-collapsed .btn-login { width: 40px; height: 40px; padding: 0; border-radius: 999px; }
+      body.sidebar-collapsed .btn-login .btn-login-label { display: none; }
+      body.sidebar-collapsed .btn-login-icon { display: block; }
+      body.sidebar-collapsed .topbar { left: 64px; }
+
+      /* Mobile bottom nav (matches TCC nav) */
+      .bottom-nav { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; height: 76px; background: #060606; border-top: 1px solid #1F1F1F; align-items: stretch; }
+      @media (max-width: 767px) { .bottom-nav { display: flex; } }
+      .bottom-nav-inner { display: flex; justify-content: space-around; align-items: stretch; width: 100%; height: 100%; }
+      .bottom-link { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; flex: 1; min-width: 0; color: #999; transition: all 0.2s; }
+      .bottom-link svg { width: 26px; height: 26px; stroke-width: 1.5; transition: all 0.3s; }
+      .bottom-link:hover { color: rgba(255,255,255,0.7); }
+      .bottom-link.active { color: #fff; }
+      .bottom-link.active::before { content: ''; position: absolute; bottom: 6px; left: 50%; transform: translateX(-50%); width: 130%; height: 62%; background: radial-gradient(closest-side, rgba(188,165,255,0.30), transparent 72%); filter: blur(3px); pointer-events: none; }
+      .bottom-link.active svg { color: #fff; position: relative; filter: drop-shadow(0 0 8px rgba(188,165,255,0.55)) drop-shadow(0 0 3px rgba(255,255,255,0.35)); }
+      .bottom-link.active::after { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 70%; height: 1px; border-radius: 2px; background: linear-gradient(90deg,#BCA4FF 0%,#fff 100%); }
+      .bottom-link span { font-size: 12px; font-weight: 400; line-height: 1; }
+      .content-wrap { padding-bottom: 90px; }
+      @media (min-width: 768px) { .content-wrap { padding-bottom: 0; } }
+
+      /* ── Buttons ── */
+      .btn-primary {
+        display: inline-flex; align-items: center; justify-content: center;
+        background: #0057DE; color: #fff; border: 0;
+        font-family: 'Inter', sans-serif; font-weight: 600;
+        letter-spacing: -0.01em; white-space: nowrap;
+        border-radius: 38px; box-shadow: 0px 4px 8.8px 0px rgba(0,0,0,0.33);
+        transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+        cursor: pointer;
+      }
+      .btn-primary:hover { background: #0A63EA; box-shadow: 0px 6px 14px 0px rgba(0,0,0,0.4); transform: translateY(-1px); }
+      .btn-primary.pill-lg { font-size: 18px; padding: 20px 40px; border-radius: 60px; }
+      .btn-white {
+        display: inline-flex; align-items: center; justify-content: center;
+        background: #fff; color: #000; border: 0;
+        font-family: 'Inter', sans-serif; font-weight: 600;
+        letter-spacing: -0.01em; white-space: nowrap;
+        border-radius: 60px; box-shadow: 0px 4px 8.8px 0px rgba(0,0,0,0.33);
+        transition: box-shadow 0.2s ease, transform 0.15s ease;
+        cursor: pointer;
+      }
+      .btn-white:hover { box-shadow: 0px 6px 14px 0px rgba(0,0,0,0.4); transform: translateY(-1px); }
+      .btn-white.pill-lg { font-size: 18px; padding: 20px 40px; }
+
+      /* ── Reveal ── */
+      .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+      .reveal.in { opacity: 1; transform: translateY(0); }
+
+      /* ── Hero ── */
+      .hero { position: relative; min-height: 100dvh; display: flex; flex-direction: column; justify-content: center; background: #060606; overflow: hidden; }
+      .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 81%; z-index: 0; }
+      .hero-glow { position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 1; pointer-events: none; background: radial-gradient(ellipse 68% 26% at 49% 17%, rgba(18,87,165,0.79) 0%, rgba(18,87,165,0.42) 55%, rgba(18,87,165,0) 82%); }
+      .hero-fade { position: absolute; left: 0; right: 0; bottom: 0; height: 34%; z-index: 2; pointer-events: none; background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #000 100%); }
+      .hero-content { position: relative; z-index: 3; max-width: min(1090px, 94%); margin: 0 auto; padding: 40px 0 60px; width: 100%; }
+      .hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 24px; }
+      .hero-h1 { font-weight: 800; letter-spacing: -0.04em; line-height: 1.06; font-size: clamp(28px, 3.4vw, 54px); margin-bottom: 20px; }
+      .hero-sub { font-family: 'Inter', sans-serif; font-weight: 500; letter-spacing: -0.02em; color: rgba(255,255,255,0.9); text-shadow: 0px 1px 4px rgba(0,0,0,0.45); font-size: clamp(18px, 2vw, 26px); max-width: 22em; margin-bottom: 30px; }
+      .hero-cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+      .trust-bar { margin-top: 48px; }
+      .trust-label { font-family: 'DM Mono', monospace; font-size: 12px; color: rgba(255,255,255,0.7); text-shadow: 0px 2px 2px #000000E3; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px; }
+      .trust-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 0; border: 1px solid rgba(255,255,255,0.23); border-radius: 14px; overflow: hidden; background: rgba(0,0,0,0.35); }
+      .trust-cell { display: flex; align-items: center; justify-content: center; height: 52px; background: rgba(0,0,0,0.25); }
+      .trust-cell img { max-height: 26px; max-width: 80px; object-fit: contain; opacity: 0.9; filter: brightness(0) invert(1); }
+      @media (max-width: 900px) { .trust-grid { display: none; } }
+      .logo-marquee-wrap { position: relative; display: none; overflow: hidden; margin-top: 24px; }
+      @media (max-width: 900px) { .logo-marquee-wrap { display: block; } }
+      .logo-marquee-wrap::before, .logo-marquee-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 100px; z-index: 2; pointer-events: none; }
+      .logo-marquee-wrap::before { left: 0; background: linear-gradient(to right, rgba(0,0,0,0.8), transparent); }
+      .logo-marquee-wrap::after { right: 0; background: linear-gradient(to left, rgba(0,0,0,0.8), transparent); }
+      .logo-marquee { display: flex; width: max-content; animation: heroLogoMarquee 20s linear infinite; }
+      .logo-marquee-cell { display: flex; align-items: center; justify-content: center; min-width: 112px; height: 44px; border: 1px solid rgba(255,255,255,0.12); margin: 0 5px; border-radius: 10px; }
+      .logo-marquee-cell img { max-height: 24px; max-width: 72px; object-fit: contain; opacity: 0.85; filter: brightness(0) invert(1); }
+      @keyframes heroLogoMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+      /* ── Sections ── */
+      section { position: relative; }
+      .sec { background: #000; }
+      .sec-pad { padding: 70px clamp(24px, 6vw, 80px); }
+      .sec-title { font-weight: 800; letter-spacing: -0.04em; line-height: 1.06; font-size: clamp(24px, 2.8vw, 42px); margin-bottom: 18px; }
+      .sec-sub { font-family: 'Inter', sans-serif; font-weight: 400; color: #cacaca; font-size: clamp(16px, 1.6vw, 22px); max-width: 24em; letter-spacing: -0.01em; }
+      .sec-sub.muted { color: #a4a9b3; }
+
+      /* growth loop */
+      .loop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 50px; }
+      .loop-card { border: 1px solid rgba(255,255,255,0.37); border-radius: 14px; padding: 16px 22px 30px; display: flex; flex-direction: column; }
+      .loop-img { border-radius: 12px; object-fit: cover; width: 100%; aspect-ratio: 16/9; margin-bottom: 20px; }
+      .loop-num { font-family: 'DM Mono', monospace; font-weight: 500; width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.4); border-radius: 999px; display: flex; align-items: center; justify-content: center; font-size: 15px; margin-bottom: 16px; }
+      .loop-title { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 20px; letter-spacing: -0.02em; margin-bottom: 8px; }
+      .loop-desc { color: #83888f; font-size: 14px; line-height: 1.55; }
+      @media (max-width: 900px) { .loop-grid { grid-template-columns: 1fr; } }
+
+      /* ladder */
+      .ladder-steps { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; }
+      .ladder-step { width: 36px; height: 36px; border-radius: 999px; background: #3096ff; display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-weight: 500; letter-spacing: -0.02em; font-size: 14px; color: #fff; flex-shrink: 0; }
+      .ladder-line { flex: 1; height: 0; border-top: 2px dashed #fff; opacity: 0.5; }
+      @media (max-width: 900px) { .ladder-steps { display: none; } }
+      .ladder-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+      .ladder-card { background: #000; border: 1px solid rgba(255,255,255,0.37); border-radius: 14px; min-height: 240px; padding: 40px 18px 18px; display: flex; flex-direction: column; }
+      .ladder-card.level5 { background: #0a0a0a; box-shadow: 0px 22px 50px 0px rgba(0,0,0,0.18); }
+      .ladder-level { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1.6px; color: #3096ff; text-transform: uppercase; margin-bottom: 12px; }
+      .ladder-title { font-size: 22px; line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 12px; font-family: 'Inter', sans-serif; font-weight: 800; }
+      .ladder-title .serif-i { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
+      .ladder-title .strong { font-weight: 800; }
+      .ladder-desc { color: rgba(255,255,255,0.72); font-size: 13px; line-height: 1.6; margin-top: auto; }
+      .ladder-desc b { color: #fff; font-weight: 600; }
+      @media (max-width: 900px) { .ladder-grid { grid-template-columns: 1fr; gap: 14px; } }
+      .ladder-banner { margin-top: 36px; background: rgba(255,255,255,0.18); border: 2px solid rgba(255,255,255,0.37); border-radius: 10px; min-height: 120px; padding: 26px clamp(22px, 4vw, 60px); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 22px; }
+      .ladder-banner-text { font-family: 'Inter', sans-serif; font-weight: 700; font-size: clamp(18px, 2vw, 30px); letter-spacing: -0.02em; }
+      .ladder-banner .btn-primary { font-size: 15px; padding: 16px 32px; }
+
+      /* sessions */
+      .sessions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 44px; }
+      .session-card { border-radius: 14px; overflow: hidden; position: relative; display: block; }
+      .session-card img { width: 100%; aspect-ratio: 1.69; object-fit: cover; display: block; }
+      .session-card-title { position: absolute; left: 0; right: 0; bottom: 0; padding: 30px 16px 16px; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: -0.01em; }
+      @media (max-width: 900px) { .sessions-grid { grid-template-columns: 1fr; } }
+
+      /* credits */
+      .credits-sec { background: #060606; overflow: hidden; }
+      .credits-inner { position: relative; min-height: max(100vh, 1000px); display: flex; flex-direction: column; justify-content: flex-end; }
+      .credits-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+      .credits-fade-top { position: absolute; top: 0; left: 0; right: 0; height: 18%; background: linear-gradient(180deg, #000 0%, rgba(0,0,0,0) 75.6%); z-index: 1; }
+      .credits-fade-bot { position: absolute; bottom: 0; left: 0; right: 0; height: 60%; background: linear-gradient(to top, #000 52%, rgba(0,0,0,0.92) 78%, transparent 100%); z-index: 1; }
+      .credits-content { position: relative; z-index: 2; padding: 0 clamp(24px, 6vw, 80px) 90px; }
+      .credits-sub { color: rgba(202,202,202,1); }
+      .credits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 36px; }
+      .credit-card { border-radius: 13px; padding: 18px 24px; display: flex; flex-direction: column; gap: 8px; border: 1px solid rgba(240,240,240,0.25); background: #0E0E0E; }
+      .credit-logo { height: 30px; max-width: 150px; object-fit: contain; margin-bottom: 8px; }
+      .credit-label { color: #fff; font-weight: 600; font-size: 16px; letter-spacing: -0.01em; }
+      @media (max-width: 900px) { .credits-grid { grid-template-columns: 1fr 1fr; } }
+      @media (max-width: 560px) { .credits-grid { grid-template-columns: 1fr; } }
+
+      /* pricing */
+      .pricing-sec { background: #000; overflow: hidden; }
+      .pricing-inner { position: relative; padding: clamp(50px, 7vw, 80px) clamp(24px, 6vw, 80px); background-image: url('/assets/growthx/pricing-bg-2026-07-d.webp'); background-size: cover; background-position: center; }
+      .pricing-fade-top { position: absolute; top: 0; left: 0; right: 0; height: 140px; background: linear-gradient(180deg, #000 0%, rgba(0,0,0,0) 95%); z-index: 0; }
+      .pricing-fade-bot { position: absolute; bottom: 0; left: 0; right: 0; height: 140px; background: linear-gradient(0deg, #000 0%, rgba(0,0,0,0) 95%); z-index: 0; }
+      .pricing-content { position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; text-align: center; }
+      .pricing-card { max-width: 780px; margin: 48px auto 0; background: #000; border: 1px solid rgba(255,255,255,0.37); border-radius: 30px; padding: 42px 44px; text-align: left; display: grid; grid-template-columns: 1fr 260px; gap: 36px; align-items: center; }
+      @media (max-width: 900px) { .pricing-card { grid-template-columns: 1fr; border-radius: 22px; padding: 24px; } }
+      .price-panel { background: rgba(217,217,217,0.09); border: 0.5px solid rgba(255,255,255,0.31); border-radius: 28px; overflow: hidden; padding: 8px; }
+      .price-cell { border-radius: 20px; padding: 22px; }
+      .price-cell.gold { background: linear-gradient(105deg, rgba(233,194,90,0.55) 0%, rgba(160,120,45,0.22) 55%, rgba(0,0,0,0) 100%); }
+      .price-cell.black { background: #000; border-radius: 20px; }
+      .price-tag { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: #E9C25A; margin-bottom: 12px; }
+      .price-cell.black .price-tag { color: #0064FF; }
+      .price-digits { font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: -0.03em; font-size: 30px; line-height: 1; }
+      .price-cell.black .price-digits { font-size: 23px; }
+      .price-note { color: rgba(255,255,255,0.68); font-size: 12px; margin-top: 8px; }
+      .countdown { display: flex; gap: 6px; margin-top: 16px; flex-wrap: wrap; }
+      .cd-cell { border-radius: 6px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); padding: 4px 5px; min-width: 38px; text-align: center; }
+      .cd-num { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 14px; line-height: 1.2; }
+      .cd-unit { font-family: 'DM Mono', monospace; font-size: 7px; color: rgba(255,255,255,0.45); letter-spacing: 0.1em; text-transform: uppercase; }
+      .price-benefits { display: flex; flex-direction: column; gap: 13px; }
+      .price-benefit { display: flex; align-items: center; gap: 12px; white-space: nowrap; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 17px; letter-spacing: -0.01em; }
+      .price-benefit svg { flex-shrink: 0; }
+      .price-cta-wrap { margin-top: 36px; text-align: center; }
+      .price-cta-wrap .btn-primary { font-size: 15px; min-width: 220px; padding: 16px 30px; }
+
+      /* not for everyone */
+      .nfe-sec { background: #000; overflow: hidden; }
+      .nfe-inner { position: relative; height: clamp(520px, 62vw, 800px); display: flex; align-items: center; justify-content: center; text-align: center; }
+      .nfe-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+      .nfe-fade-top { position: absolute; top: 0; left: 0; right: 0; height: 22%; background: linear-gradient(180deg, #000 0%, rgba(0,0,0,0) 95.2%); z-index: 1; }
+      .nfe-fade-bot { position: absolute; bottom: 0; left: 0; right: 0; height: 34%; background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 45%, #000 100%); z-index: 1; }
+      .nfe-content { position: relative; z-index: 2; padding: 20px; max-width: 900px; margin: 0 auto; }
+      .nfe-title { font-size: clamp(32px, 4.4vw, 68px) !important; margin-bottom: 18px; }
+      .nfe-sub { color: #cacaca; font-size: clamp(15px, 1.7vw, 24px); max-width: 22em; margin: 0 auto 32px; font-family: 'Inter', sans-serif; font-weight: 400; letter-spacing: -0.01em; }
+      .nfe-content .btn-white { margin: 0 auto; }
+
+      /* FAQ */
+      .faq-sec { padding: 80px clamp(20px, 5vw, 60px) 50px; max-width: 1200px; margin: 0 auto; }
+      .faq-title { text-align: center; margin-bottom: 60px; font-size: clamp(28px, 3.2vw, 48px); }
+      .faq-item { background: rgba(238,238,238,0.15); border-radius: 10px; margin-bottom: 16px; overflow: hidden; }
+      .faq-q { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; background: none; border: none; padding: 22px 24px; color: #fff; text-align: left; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 16px; letter-spacing: -0.01em; }
+      .faq-q .plus { flex-shrink: 0; width: 16px; height: 16px; transition: transform 0.15s ease; font-size: 18px; color: rgba(255,255,255,0.6); }
+      .faq-item.open .faq-q .plus { transform: rotate(45deg); }
+      .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s cubic-bezier(0.4,0,0.2,1); }
+      .faq-a-inner { padding: 0 24px 24px; color: rgba(255,255,255,0.72); font-size: 14px; line-height: 1.65; max-width: 68em; }
+
+      /* footer */
+      .footer { background: #060606; padding: 50px clamp(20px, 5vw, 60px) 30px; }
+      .footer-brand { text-align: center; margin-bottom: 50px; }
+      .footer-brand img { height: 220px; margin: 0 auto 16px; }
+      .footer-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 28px; padding-bottom: 50px; }
+      .footer-col h4 { font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; margin-bottom: 18px; color: #fff; }
+      .footer-col a { display: block; color: #a9a9a9; font-size: 13px; line-height: 1.9; }
+      .footer-col a:hover { color: #fff; }
+      .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 22px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+      .footer-bottom p, .footer-bottom a { color: #a9a9a9; font-size: 13px; }
+      .footer-bottom a:hover { color: #fff; }
+
+      /* loader */
+      .loader { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 1700; background: #060606; display: flex; align-items: center; justify-content: center; transition: opacity 0.5s ease, visibility 0.5s ease; }
+      .loader.hide { opacity: 0; visibility: hidden; }
+      .loader-text { font-family: 'Inter', sans-serif; font-weight: 600; color: rgba(153,153,153,0.65); letter-spacing: -0.08px; font-size: 16px; background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.85) 50%, transparent 100%); background-size: 152px 100%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 2.166s linear infinite; }
+      @keyframes shimmer { 0% { background-position: -152px 0; } 100% { background-position: 152px 0; } }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loader" id="loader"><p class="loader-text">Patience—you're about to be impressed.</p></div>
+
+    <div class="app-shell baseline-root" id="app">
+      <!-- Desktop sidebar nav (TCC aside) -->
+      <aside class="sidebar">
+        <div class="sidebar-head">
+          <a href="/" class="brand-serif sidebar-brand">thecodingcompany</a>
+          <button type="button" class="sidebar-mark" title="Expand sidebar" aria-label="Expand sidebar">T</button>
+          <button type="button" class="sidebar-toggle" title="Collapse sidebar" aria-label="Collapse sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 6l-5 6 5 6" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 6l-5 6 5 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+        <nav class="sidebar-nav">
+          <a href="/" class="sidebar-link active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 10.5 12 3l9 7.5M5 9.5V21h5v-6h4v6h5V9.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="label">Home</span></a>
+          <a href="/bootcamps" class="sidebar-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19V6m0 13c0 1.1 4.5 2 10 2V8c-5.5 0-10 .9-10 2m0 9H3m2 0c0 1.1 4.5 2 10 2M6 8v11" stroke-linecap="round" stroke-linejoin="round"/><path d="m13 4 1.2 2.8L17 8l-2.8 1.2L13 12l-1.2-2.8L9 8l2.8-1.2L13 4z" fill="currentColor" stroke="none"/></svg><span class="label">Bootcamps</span></a>
+          <a href="/vybeclub" class="sidebar-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M8 21h8m-4-5v5M12 4a5 5 0 0 1 5 5c0 2.1-1.3 3.9-3 4.7V16H10v-2.3c-1.7-.8-3-2.6-3-4.7a5 5 0 0 1 5-5z" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="label">100 Club</span></a>
+          <a href="/domains" class="sidebar-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span class="label">Domains</span></a>
+          <a href="/gigs" class="sidebar-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18" stroke-linecap="round"/></svg><span class="label">Gigs</span></a>
+        </nav>
+        <div class="sidebar-bottom">
+          <a href="/webinars" class="sidebar-webinars"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10 9 5 3-5 3V9z" fill="currentColor" stroke="none"/></svg><span>Webinars</span></a>
+          <a href="/login" class="btn-login"><svg class="btn-login-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6" stroke-linecap="round"/></svg><span class="btn-login-label">Member Login</span></a>
+        </div>
+      </aside>
+
+      <!-- Desktop top bar (growthx header) -->
+      <header class="topbar" id="topbar">
+        <button class="topbar-cta" type="button" onclick="window.location.href='/become-a-member'">Become a member</button>
+      </header>
+
+      <!-- Scrollable main -->
+      <main class="main-scroll">
+        <!-- Mobile top header -->
+        <header class="mobile-header">
+          <a href="/" class="brand-serif mobile-brand">thecodingcompany</a>
+          <div class="mobile-actions">
+            <a href="/login" class="mobile-login" aria-label="Login"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6" stroke-linecap="round"/></svg></a>
+            <button class="mobile-cta" type="button" onclick="window.location.href='/become-a-member'">Become a member</button>
+          </div>
+        </header>
+
+        <div class="content-wrap">
+          <!-- HERO -->
+          <section id="hero-section" class="hero">
+            <img class="hero-bg" src="/assets/growthx/home-new.webp" alt="AI builder community" />
+            <div class="hero-glow"></div>
+            <div class="hero-fade"></div>
+            <div class="hero-content">
+              <h1 class="hero-h1 reveal">
+                AI is rewriting<br/>every career. Learn to<br/>build with the people<br/>already ahead.
+              </h1>
+              <p class="hero-sub reveal">
+                The Coding Company is a learning community<br/>for the most ambitious professionals in the world.
+              </p>
+              <div class="hero-cta-row reveal">
+                <button class="btn-white pill-lg" type="button" onclick="window.location.href='/become-a-member'">Become a member</button>
+                <button class="btn-primary pill-lg" type="button" onclick="window.location.href='/domains'">Explore programs</button>
+              </div>
+              <div class="trust-bar reveal">
+                <p class="trust-label">Trusted by builders at the world&rsquo;s leading AI companies</p>
+                <div class="trust-grid">
+                  <div class="trust-cell"><img src="/assets/growthx/logo-openai.webp" alt="OpenAI" /></div>
+                  <div class="trust-cell"><img src="/assets/growthx/logo-google.webp" alt="Google" /></div>
+                  <div class="trust-cell"><img src="/assets/growthx/logo-microsoft.webp" alt="Microsoft" /></div>
+                  <div class="trust-cell"><img src="/assets/growthx/logo-eleven.webp" alt="ElevenLabs" /></div>
+                  <div class="trust-cell"><img src="/assets/growthx/logo-lovable.webp" alt="Lovable" /></div>
+                  <div class="trust-cell"><img src="/assets/growthx/logo-sarvam-ai.webp" alt="Sarvam AI" /></div>
+                  <div class="trust-cell"><img src="/assets/growthx/logo-meta.png" alt="Meta" /></div>
+                  <div class="trust-cell"><img src="/assets/growthx/logo-palantir.webp" alt="Palantir" /></div>
+                </div>
+                <div class="logo-marquee-wrap">
+                  <div class="logo-marquee" id="logoMarquee">
+                    <div class="logo-marquee-cell"><img src="/assets/growthx/logo-openai.webp" alt="" /></div>
+                    <div class="logo-marquee-cell"><img src="/assets/growthx/logo-google.webp" alt="" /></div>
+                    <div class="logo-marquee-cell"><img src="/assets/growthx/logo-microsoft.webp" alt="" /></div>
+                    <div class="logo-marquee-cell"><img src="/assets/growthx/logo-eleven.webp" alt="" /></div>
+                    <div class="logo-marquee-cell"><img src="/assets/growthx/logo-lovable.webp" alt="" /></div>
+                    <div class="logo-marquee-cell"><img src="/assets/growthx/logo-sarvam-ai.webp" alt="" /></div>
+                    <div class="logo-marquee-cell"><img src="/assets/growthx/logo-meta.png" alt="" /></div>
+                    <div class="logo-marquee-cell"><img src="/assets/growthx/logo-palantir.webp" alt="" /></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- GROWTH LOOP -->
+          <section id="growth-loop-section" class="sec sec-pad">
+            <div class="reveal">
+              <h2 class="sec-title">The Coding Company isn&rsquo;t a course you finish</h2>
+              <p class="sec-sub muted">It&rsquo;s a loop you keep running as your goals change</p>
+            </div>
+            <div class="loop-grid">
+              <div class="loop-card reveal">
+                <img class="loop-img" src="/assets/growthx/step-01-summit-flag.webp" alt="Select your goal" />
+                <div class="loop-num">01</div>
+                <div class="loop-title">Select your goal</div>
+                <p class="loop-desc">Better role, shipped product, network, or a new skill</p>
+              </div>
+              <div class="loop-card reveal">
+                <img class="loop-img" src="/assets/growthx/step-02-signpost.webp" alt="Get your roadmap" />
+                <div class="loop-num">02</div>
+                <div class="loop-title">Get your roadmap</div>
+                <p class="loop-desc">Who to meet / What to learn / What to build</p>
+              </div>
+              <div class="loop-card reveal">
+                <img class="loop-img" src="/assets/growthx/step-03-infinity-loop.webp" alt="Repeat" />
+                <div class="loop-num">03</div>
+                <div class="loop-title">Repeat</div>
+                <p class="loop-desc">Hit it, pick the next one; every loop compounds</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- AI PRODUCT LADDER -->
+          <section id="ai-product-ladder-section" class="sec sec-pad">
+            <div class="reveal">
+              <h2 class="sec-title">In 4 days, build &amp; sell your first AI product.</h2>
+              <div class="ladder-steps">
+                <div class="ladder-step">1</div><div class="ladder-line"></div>
+                <div class="ladder-step">2</div><div class="ladder-line"></div>
+                <div class="ladder-step">3</div><div class="ladder-line"></div>
+                <div class="ladder-step">4</div><div class="ladder-line"></div>
+                <div class="ladder-step">5</div>
+              </div>
+            </div>
+            <div class="ladder-grid">
+              <div class="ladder-card reveal">
+                <div class="ladder-level">Level 1</div>
+                <div class="ladder-title">The <span class="serif-i">user</span></div>
+                <p class="ladder-desc">You use ChatGPT or Claude every day. You have <b>never written code</b>. This is where most people start.</p>
+              </div>
+              <div class="ladder-card reveal">
+                <div class="ladder-level">Level 2</div>
+                <div class="ladder-title">The <span class="serif-i">vibe coder</span></div>
+                <p class="ladder-desc">You have shipped something with a <b>vibe coding tool</b>. Lovable, Bolt, Emergent.</p>
+              </div>
+              <div class="ladder-card reveal">
+                <div class="ladder-level">Level 3</div>
+                <div class="ladder-title">The <span class="serif-i">automator</span></div>
+                <p class="ladder-desc">You have built an <b>AI workflow or agent</b>. n8n, Make.</p>
+              </div>
+              <div class="ladder-card reveal">
+                <div class="ladder-level">Level 4</div>
+                <div class="ladder-title">The <span class="serif-i">coder</span></div>
+                <p class="ladder-desc">You use <b>Claude Code</b> to ship a full deployed product. Frontend, backend, database, live URL, public repo.</p>
+              </div>
+              <div class="ladder-card level5 reveal">
+                <div class="ladder-level">Level 5</div>
+                <div class="ladder-title">The <span class="serif-i">AI first</span> <span class="strong">leader</span></div>
+                <p class="ladder-desc">You <b>build and you distribute</b>. Product, users, traction. You stop waiting on anyone to ship your ideas.</p>
+              </div>
+            </div>
+            <div class="ladder-banner reveal">
+              <div class="ladder-banner-text">Next cohort begins August 29th</div>
+              <button class="btn-primary" type="button" onclick="window.location.href='/bootcamps'">Explore detailed curriculum</button>
+            </div>
+          </section>
+
+          <!-- AI EXPERT SESSIONS -->
+          <section class="sec sec-pad">
+            <div class="reveal">
+              <h2 class="sec-title">AI expert sessions, every week</h2>
+              <p class="sec-sub">Implementation walkthroughs, live. Plus, you get the recordings.</p>
+            </div>
+            <div class="sessions-grid">
+              <a class="session-card reveal" href="/bootcamps"><img src="/assets/growthx/session-card-eleven-labs.webp" alt="" /><span class="session-card-title">Building a voice agent in 30 mins</span></a>
+              <a class="session-card reveal" href="/bootcamps"><img src="/assets/growthx/session-card-palantir.webp" alt="" /><span class="session-card-title">How FDEs drive 0-1 AI transformations</span></a>
+              <a class="session-card reveal" href="/bootcamps"><img src="/assets/growthx/session-card-rocket.webp" alt="" /><span class="session-card-title">Make your first $1,000 with AI</span></a>
+              <a class="session-card reveal" href="/bootcamps"><img src="/assets/growthx/session-card-microsoft.webp" alt="" /><span class="session-card-title">How Microsoft&rsquo;s AI VP Uses and Builds with AI</span></a>
+              <a class="session-card reveal" href="/bootcamps"><img src="/assets/growthx/session-card-lovable.webp" alt="" /><span class="session-card-title">Build a marketing campaign tracker with Lovable</span></a>
+              <a class="session-card reveal" href="/bootcamps"><img src="/assets/growthx/session-card-n8n.webp" alt="" /><span class="session-card-title">Building an AI agent prep agent w/ n8n</span></a>
+            </div>
+          </section>
+
+          <!-- AI CREDITS -->
+          <section class="credits-sec">
+            <div class="credits-inner">
+              <img class="credits-bg" src="/assets/growthx/leaf-forest-background-wide-optimized.avif" alt="" />
+              <div class="credits-fade-top"></div>
+              <div class="credits-fade-bot"></div>
+              <div class="credits-content">
+                <div class="reveal">
+                  <h2 class="sec-title">AI credits to build things</h2>
+                  <p class="sec-sub credits-sub">$7,000 when you sign up + more during build events</p>
+                </div>
+                <div class="credits-grid reveal">
+                  <div class="credit-card"><img class="credit-logo" src="/assets/growthx/credit-sarvam-ai.webp" alt="sarvam.ai" style="filter:brightness(0) invert(1)" /><span class="credit-label">$1,000 in credits</span></div>
+                  <div class="credit-card"><img class="credit-logo" src="/assets/growthx/credit-wispr-flow.webp" alt="Wispr Flow" style="filter:brightness(0) invert(1)" /><span class="credit-label">6 months pro plan</span></div>
+                  <div class="credit-card"><img class="credit-logo" src="/assets/growthx/credit-notion.webp" alt="Notion" style="filter:brightness(0) invert(1)" /><span class="credit-label">$6,000 in credits</span></div>
+                  <div class="credit-card"><img class="credit-logo" src="/assets/growthx/credit-openai.webp" alt="OpenAI" style="filter:brightness(0) invert(1)" /><span class="credit-label">During events</span></div>
+                  <div class="credit-card"><img class="credit-logo" src="/assets/growthx/credit-elevenlabs.webp" alt="ElevenLabs" style="filter:brightness(0) invert(1)" /><span class="credit-label">During events</span></div>
+                  <div class="credit-card"><img class="credit-logo" src="/assets/growthx/credit-ringg-ai.webp" alt="Ringg.AI" style="filter:brightness(0) invert(1)" /><span class="credit-label">During events</span></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- PRICING -->
+          <section id="pricing-section" class="pricing-sec">
+            <div class="pricing-inner">
+              <div class="pricing-fade-top"></div>
+              <div class="pricing-fade-bot"></div>
+              <div class="pricing-content reveal">
+                <h2 class="sec-title">Everything you need to be at the edge of AI</h2>
+                <div class="pricing-card">
+                  <div class="price-panel">
+                    <div class="price-cell gold">
+                      <div class="price-tag">Early Bird Pricing</div>
+                      <div class="countdown" id="countdown">
+                        <div class="cd-cell"><div class="cd-num">00</div><div class="cd-unit">Days</div></div>
+                        <div class="cd-cell"><div class="cd-num">00</div><div class="cd-unit">Hours</div></div>
+                        <div class="cd-cell"><div class="cd-num">00</div><div class="cd-unit">Minutes</div></div>
+                        <div class="cd-cell"><div class="cd-num">00</div><div class="cd-unit">Seconds</div></div>
+                      </div>
+                      <div class="price-digits" style="margin-top:16px">₹14,999</div>
+                      <div class="price-note">joining fee</div>
+                    </div>
+                    <div class="price-cell black">
+                      <div class="price-tag">Standard Pricing</div>
+                      <div class="price-digits">₹19,999</div>
+                      <div class="price-note">joining fee</div>
+                    </div>
+                  </div>
+                  <div class="price-benefits">
+                    <div class="price-benefit"><svg width="20" height="20" viewBox="0 0 18 18" fill="none"><path d="M3.75 9.5L7 12.75L14.25 5.25" stroke="rgba(255,255,255,0.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Online live AI program</div>
+                    <div class="price-benefit"><svg width="20" height="20" viewBox="0 0 18 18" fill="none"><path d="M3.75 9.5L7 12.75L14.25 5.25" stroke="rgba(255,255,255,0.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Lessons from top AI experts</div>
+                    <div class="price-benefit"><svg width="20" height="20" viewBox="0 0 18 18" fill="none"><path d="M3.75 9.5L7 12.75L14.25 5.25" stroke="rgba(255,255,255,0.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>AI Events that you deserve</div>
+                    <div class="price-benefit"><svg width="20" height="20" viewBox="0 0 18 18" fill="none"><path d="M3.75 9.5L7 12.75L14.25 5.25" stroke="rgba(255,255,255,0.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Exclusive online community</div>
+                    <div class="price-benefit"><svg width="20" height="20" viewBox="0 0 18 18" fill="none"><path d="M3.75 9.5L7 12.75L14.25 5.25" stroke="rgba(255,255,255,0.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>50+ video lessons on AI &amp; GTM</div>
+                    <div class="price-benefit"><svg width="20" height="20" viewBox="0 0 18 18" fill="none"><path d="M3.75 9.5L7 12.75L14.25 5.25" stroke="rgba(255,255,255,0.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Credits from top AI companies</div>
+                  </div>
+                </div>
+                <div class="price-cta-wrap">
+                  <button class="btn-primary" type="button" onclick="window.location.href='/become-a-member'">Become a member</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- NOT FOR EVERYONE -->
+          <section id="not-for-everyone-section" class="nfe-sec">
+            <div class="nfe-inner">
+              <img class="nfe-bg" src="/assets/growthx/last-cta-fold-d.webp" alt="" />
+              <div class="nfe-fade-top"></div>
+              <div class="nfe-fade-bot"></div>
+              <div class="nfe-content reveal">
+                <h2 class="sec-title nfe-title">We&rsquo;re not for everyone</h2>
+                <p class="nfe-sub">Our AI agent evaluates your professional profile &amp; gives you an instant decision. We optimise for fit, not volume.</p>
+                <button class="btn-white pill-lg" type="button" onclick="window.location.href='/become-a-member'">Become a member</button>
+              </div>
+            </div>
+          </section>
+
+          <!-- FAQ -->
+          <section class="faq-sec">
+            <h2 class="sec-title faq-title reveal">Frequently Asked Questions</h2>
+            <div class="faq-item reveal">
+              <button class="faq-q" type="button">Is this a course or a community?<span class="plus">+</span></button>
+              <div class="faq-a"><div class="faq-a-inner">Both. The 4 day program gets you started on AI. The 1 year membership keeps you ahead. After the AI immersion program get access to expert sessions every week, build events in your city, a private Slack and AI credits.</div></div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-q" type="button">Who conducts the AI immersion program?<span class="plus">+</span></button>
+              <div class="faq-a"><div class="faq-a-inner">Our team of AI implementation specialists will be taking the session.</div></div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-q" type="button">I&rsquo;ve never written code. Can I do this?<span class="plus">+</span></button>
+              <div class="faq-a"><div class="faq-a-inner">Yes. Most people in the room haven&rsquo;t either. PMs, marketers, founders, designers - they all ship by day 4. AI has removed the line between builder and non-builder. You don&rsquo;t need code. You need an idea and four days of showing up.</div></div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-q" type="button">What level of AI experience do I need?<span class="plus">+</span></button>
+              <div class="faq-a"><div class="faq-a-inner">You could be prompting or already shipping products or starting from zero. You pick a simple build and ship it. If you&rsquo;re already building, bring your hardest problem and use the week to crack it.</div></div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-q" type="button">I&rsquo;m a dev. Is this for me?<span class="plus">+</span></button>
+              <div class="faq-a"><div class="faq-a-inner">You already know how to build. Bring your dream project, use the week to ship it, and bring your hardest problem to the live sessions. Get real feedback. The community of operators, marketers and founders is a bonus - early users, GTM all in one place.</div></div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-q" type="button">What can I actually build?<span class="plus">+</span></button>
+              <div class="faq-a"><div class="faq-a-inner">Anything that solves one problem you actually feel. If you already have an idea, bring it. If you don&rsquo;t, day 1 gives you a list to pick from. Either way, you leave day 1 knowing exactly what you&rsquo;re building. You won&rsquo;t spend the week deciding. You&rsquo;ll spend it building.</div></div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-q" type="button">What if I get stuck mid-build?<span class="plus">+</span></button>
+              <div class="faq-a"><div class="faq-a-inner">That&rsquo;s what the live sessions are for. Build on your own time, bring the exact thing you&rsquo;re stuck on to the 8pm call, and we get you unstuck. Slack&rsquo;s open all day too.</div></div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-q" type="button">What do I need before day 1?<span class="plus">+</span></button>
+              <div class="faq-a"><div class="faq-a-inner">A laptop, a Claude Max plan, and an idea. That&rsquo;s it.</div></div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-q" type="button">What is the time commitment?<span class="plus">+</span></button>
+              <div class="faq-a"><div class="faq-a-inner">Live sessions run Saturday to Tuesday. Building happens between sessions. Plan for 4 - 6 hours across the week.</div></div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-q" type="button">How often does the AI immersion program run?<span class="plus">+</span></button>
+              <div class="faq-a"><div class="faq-a-inner">Once a month.</div></div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-q" type="button">Do I get the recordings of the AI immersion program sessions?<span class="plus">+</span></button>
+              <div class="faq-a"><div class="faq-a-inner">No. The sessions are live and built for unblocking. The building happens between sessions, not during them. Show up live.</div></div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-q" type="button">Can I join the next cohort if I miss this one?<span class="plus">+</span></button>
+              <div class="faq-a"><div class="faq-a-inner">Yes, but only within the next 2 cohorts. Meanwhile, your membership access opens up immediately.</div></div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-q" type="button">What kind of events are hosted?<span class="plus">+</span></button>
+              <div class="faq-a"><div class="faq-a-inner">You&rsquo;ll build over weekends - buildathons &amp; hackathons are at the core. Around them, the casual side as well - meet-ups, food crawls &amp; sundowners.</div></div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-q" type="button">What do I get after paying?<span class="plus">+</span></button>
+              <div class="faq-a"><div class="faq-a-inner">Access to the 4-day AI immersion program cohort and immediate membership - which includes build events in your city, a private Slack community, AI credits, your personalised AI roadmap, and 50+ video lessons on AI and GTM.</div></div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-q" type="button">What is the validity of the membership?<span class="plus">+</span></button>
+              <div class="faq-a"><div class="faq-a-inner">One year. From the second year onwards, renewal is lower annually.</div></div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-q" type="button">What is the billing cycle and renewal date?<span class="plus">+</span></button>
+              <div class="faq-a"><div class="faq-a-inner">The billing cycle is for 1 year, and the renewal date is 1 year from your date of purchase.</div></div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-q" type="button">What if I join and change my mind? What&rsquo;s the refund policy?<span class="plus">+</span></button>
+              <div class="faq-a"><div class="faq-a-inner">We encourage exploring membership details thoroughly before signing up. As we fall under digital goods category that are experiential in nature, we do not offer refunds.</div></div>
+            </div>
+          </section>
+
+          <!-- FOOTER -->
+          <footer class="footer">
+            <div class="footer-brand">
+              <img src="/assets/img/tcc-logo.png" alt="The Coding Company" />
+            </div>
+            <div class="footer-grid">
+              <div class="footer-col">
+                <h4>AI Events</h4>
+                <a href="/webinars">Bengaluru</a><a href="/webinars">Mumbai</a><a href="/webinars">Hyderabad</a><a href="/webinars">Delhi</a><a href="/webinars">Pune</a><a href="/webinars">Chennai</a><a href="/webinars">San Francisco</a>
+              </div>
+              <div class="footer-col">
+                <h4>AI Courses</h4>
+                <a href="/bootcamps">AI Agents 101</a><a href="/bootcamps">Building Voice Agents</a><a href="/bootcamps">AI Engineering Playbook</a><a href="/bootcamps">How to make $1000 w/ AI</a><a href="/learn">Build an AI Campaign Tracker</a><a href="/learn">How PMs Use AI</a>
+              </div>
+              <div class="footer-col">
+                <h4>Company</h4>
+                <a href="/login">Login</a><a href="/bootcamps">Origin Story</a><a href="/vybeclub">100 Club</a><a href="/vybing">Vybing</a><a href="/terms-of-service">Terms of use</a><a href="/privacy-policy">Privacy Policy</a><a href="/refund-policy">Refund Policy</a>
+              </div>
+              <div class="footer-col">
+                <h4>Learning</h4>
+                <a href="/learn">Learning Space</a><a href="/learn/1-on-1">1-on-1 Coaching</a><a href="/learn/custom-course">Custom Courses</a><a href="/domains">Domains</a><a href="/bootcamps">Bootcamps</a><a href="/webinars">Webinars</a>
+              </div>
+              <div class="footer-col">
+                <h4>Socials</h4>
+                <a href="https://www.linkedin.com/company/112741155/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://www.instagram.com/thecodingcompany.io/" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://lms.thecodingcompany.io/" target="_blank" rel="noopener">LMS / Sign in</a>
+              </div>
+            </div>
+            <div class="footer-bottom">
+              <p>&copy; 2026 The Coding Company. All rights reserved.</p>
+            </div>
+          </footer>
+        </div>
+      </main>
+
+      <!-- Mobile bottom nav (TCC) -->
+      <nav class="bottom-nav">
+        <div class="bottom-nav-inner">
+          <a href="/" class="bottom-link active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 10.5 12 3l9 7.5M5 9.5V21h5v-6h4v6h5V9.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Home</span></a>
+          <a href="/bootcamps" class="bottom-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19V6m0 13c0 1.1 4.5 2 10 2V8c-5.5 0-10 .9-10 2m0 9H3m2 0c0 1.1 4.5 2 10 2M6 8v11" stroke-linecap="round" stroke-linejoin="round"/><path d="m13 4 1.2 2.8L17 8l-2.8 1.2L13 12l-1.2-2.8L9 8l2.8-1.2L13 4z" fill="currentColor" stroke="none"/></svg><span>Bootcamps</span></a>
+          <a href="/vybeclub" class="bottom-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M8 21h8m-4-5v5M12 4a5 5 0 0 1 5 5c0 2.1-1.3 3.9-3 4.7V16H10v-2.3c-1.7-.8-3-2.6-3-4.7a5 5 0 0 1 5-5z" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Club</span></a>
+          <a href="/domains" class="bottom-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Domains</span></a>
+          <a href="/gigs" class="bottom-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18" stroke-linecap="round"/></svg><span>Gigs</span></a>
+          <a href="/webinars" class="bottom-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10 9 5 3-5 3V9z" fill="currentColor" stroke="none"/></svg><span>Webinars</span></a>
+        </div>
+      </nav>
+
+    </div>
+
+    <script>
+      (function () {
+        // sidebar collapse / expand (matches growthx 200px ⇄ 64px rail)
+        function setCollapsed(c) {
+          document.body.classList.toggle('sidebar-collapsed', c);
+          try { localStorage.setItem('tcc-sidebar', c ? 'collapsed' : 'open'); } catch (e) {}
+        }
+        var mark = document.querySelector('.sidebar-mark');
+        var tog = document.querySelector('.sidebar-toggle');
+        if (mark) mark.addEventListener('click', function () { setCollapsed(false); });
+        if (tog) tog.addEventListener('click', function () { setCollapsed(true); });
+        setCollapsed(false);
+
+        var topbar = document.getElementById('topbar');
+        var scroller = document.querySelector('.main-scroll');
+        function onScroll() {
+          if (!topbar || !scroller) return;
+          topbar.classList.toggle('visible', scroller.scrollTop > 60);
+        }
+        if (topbar) { if (scroller) scroller.addEventListener('scroll', onScroll, { passive: true }); onScroll(); }
+        // loader
+        var loader = document.getElementById('loader');
+        window.addEventListener('load', function () {
+          setTimeout(function () { loader.classList.add('hide'); }, 400);
+        });
+        setTimeout(function () { loader.classList.add('hide'); }, 3000);
+
+        // scroll reveal (inside .main-scroll)
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+          });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+        // duplicate logo marquee
+        var lm = document.getElementById('logoMarquee');
+        if (lm) lm.innerHTML += lm.innerHTML;
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-q').forEach(function (q) {
+          q.addEventListener('click', function () {
+            var item = q.parentElement;
+            var a = q.nextElementSibling;
+            var open = item.classList.contains('open');
+            document.querySelectorAll('.faq-item.open').forEach(function (o) {
+              o.classList.remove('open');
+              o.querySelector('.faq-a').style.maxHeight = '0px';
+            });
+            if (!open) {
+              item.classList.add('open');
+              a.style.maxHeight = a.scrollHeight + 'px';
+            }
+          });
+        });
+
+        // countdown
+        var end = new Date(); end.setMonth(7, 29); end.setHours(0,0,0,0);
+        function pad(n){ return n < 10 ? '0'+n : ''+n; }
+        function tick() {
+          var diff = end.getTime() - new Date().getTime();
+          if (diff < 0) { end.setFullYear(end.getFullYear()+1); diff = end.getTime() - new Date().getTime(); }
+          diff = Math.max(0, diff);
+          var s = Math.floor(diff/1000);
+          var nums = [Math.floor(s/86400), Math.floor(s/3600)%24, Math.floor(s/60)%60, s%60];
+          var cells = document.querySelectorAll('.cd-num');
+          for (var i=0;i<4;i++) cells[i].textContent = pad(nums[i]);
+        }
+        tick(); setInterval(tick, 1000);
+      })();
+    </script>
+  </body>
+</html>

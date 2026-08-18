@@ -1,0 +1,799 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Bootcamp in India | Hands-On Learning | The Coding Company</title>
+    <meta name="description" content="Join The Coding Company AI bootcamp and build real-world AI projects. Learn practical skills that help you stand out in today’s AI-driven job market." />
+    <meta property="og:title" content="AI Bootcamp in India | Hands-On Learning | The Coding Company" />
+    <meta property="og:description" content="Intense AI Engineering Bootcamps: Ship Real AI Projects. From ₹4 LPA to ₹20+ LPA AI Engineer in 45 Days." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/vs-ig-posts-youtube-thumbnail.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://thecodingcompany.com/bootcamps" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/tcc-favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/tcc-favicon-96.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/tcc-apple-touch.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+      body { background: #050505; color: #fff; font-family: 'Inter', system-ui, sans-serif; font-weight: 400; line-height: 1.5; overflow: hidden; }
+      img { display: block; max-width: 100%; }
+      a { color: inherit; text-decoration: none; }
+      button, input, select, textarea { font-family: inherit; }
+
+      h1, h2 { font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: -0.04em; }
+      .serif { font-family: 'Instrument Serif', serif; font-weight: 400; letter-spacing: -0.02em; }
+      .serif-i { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
+      .mono { font-family: 'DM Mono', 'Roboto Mono', monospace; }
+
+      .app-shell { height: 100dvh; overflow: hidden; display: flex; background: #050505; }
+
+      .sidebar { display: none; position: sticky; top: 0; width: 200px; min-height: 100%; padding: 24px 16px; flex-direction: column; flex-shrink: 0; border-right: 1px solid rgba(255,255,255,0.05); background: #050505; overflow-y: auto; overflow-x: hidden; }
+      @media (min-width: 768px) { .sidebar { display: flex; } }
+      .sidebar-link { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 12px; font-size: 14px; color: rgba(255,255,255,0.4); transition: all 0.3s; position: relative; }
+      .sidebar-link svg { width: 18px; height: 18px; flex-shrink: 0; stroke-width: 1.5; }
+      .sidebar-link:hover { color: #fff; background: rgba(255,255,255,0.05); }
+      .sidebar-link.active { color: #fff; background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.12), transparent 70%); mask-image: linear-gradient(to right, black 40%, transparent 100%); -webkit-mask-image: linear-gradient(to right, black 40%, transparent 100%); }
+      .sidebar-link .label { font-weight: 500; letter-spacing: 0.01em; }
+      .sidebar-nav { margin-top: 25vh; }
+      .sidebar-bottom { margin-top: auto; display: flex; flex-direction: column; gap: 12px; }
+      .sidebar-webinars { display: flex; align-items: center; gap: 12px; padding: 12px 4px; color: rgba(255,255,255,0.4); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.25em; transition: color 0.3s; }
+      .sidebar-webinars:hover { color: #fff; }
+      .sidebar-webinars svg { width: 16px; height: 16px; stroke-width: 1.5; }
+      .btn-login { display: block; text-align: center; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 12px 20px; font-size: 13px; color: rgba(255,255,255,0.8); font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; transition: all 0.3s; }
+      .btn-login:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff; }
+      .brand-serif { font-family: 'Instrument Serif', serif; font-weight: 700; letter-spacing: -0.01em; }
+      .sidebar-brand { font-size: 21px; padding: 0 8px; margin-bottom: 24px; transition: all 0.3s; }
+      .sidebar-brand:hover { text-shadow: 0 0 16px rgba(255,255,255,0.4); }
+
+      .main-scroll { flex: 1; height: 100%; overflow-y: auto; overflow-x: hidden; position: relative; }
+
+      .mobile-header { display: flex; position: sticky; top: 0; left: 0; right: 0; z-index: 110; padding: 8px 16px; align-items: center; justify-content: space-between; background: rgba(6,6,6,0.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06); }
+      @media (min-width: 768px) { .mobile-header { display: none; } }
+      .mobile-brand { font-size: 19px; }
+      .mobile-actions { display: flex; align-items: center; gap: 10px; }
+      .mobile-login { width: 40px; height: 40px; border-radius: 999px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); transition: all 0.3s; }
+      .mobile-login:hover { background: rgba(255,255,255,0.15); }
+      .mobile-login svg { width: 20px; height: 20px; stroke-width: 1.5; }
+      .mobile-cta { font-size: 12px; font-weight: 600; background: #0064FF; color: #fff; border: 0; border-radius: 999px; padding: 9px 16px; white-space: nowrap; transition: background 0.2s; cursor: pointer; }
+      .mobile-cta:hover { background: rgb(0,70,178); }
+      @media (max-width: 360px) { .mobile-header { padding: 8px 12px; gap: 8px; } .mobile-brand { font-size: 17px; } .mobile-cta { font-size: 11px; padding: 8px 12px; } }
+
+      .bottom-nav { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; height: 76px; background: #060606; border-top: 1px solid #1F1F1F; align-items: stretch; }
+      @media (max-width: 767px) { .bottom-nav { display: flex; } }
+      .bottom-nav-inner { display: flex; justify-content: space-around; align-items: stretch; width: 100%; height: 100%; }
+      .bottom-link { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; flex: 1; min-width: 0; color: #999; transition: all 0.2s; }
+      .bottom-link svg { width: 26px; height: 26px; stroke-width: 1.5; transition: all 0.3s; }
+      .bottom-link:hover { color: rgba(255,255,255,0.7); }
+      .bottom-link.active { color: #fff; }
+      .bottom-link.active::before { content: ''; position: absolute; bottom: 6px; left: 50%; transform: translateX(-50%); width: 130%; height: 62%; background: radial-gradient(closest-side, rgba(188,165,255,0.30), transparent 72%); filter: blur(3px); pointer-events: none; }
+      .bottom-link.active svg { color: #fff; position: relative; filter: drop-shadow(0 0 8px rgba(188,165,255,0.55)) drop-shadow(0 0 3px rgba(255,255,255,0.35)); }
+      .bottom-link.active::after { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 70%; height: 1px; border-radius: 2px; background: linear-gradient(90deg,#BCA4FF 0%,#fff 100%); }
+      .bottom-link span { font-size: 12px; font-weight: 400; line-height: 1; }
+      .content-wrap { padding-bottom: 90px; }
+      @media (min-width: 768px) { .content-wrap { padding-bottom: 0; } }
+
+      .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+      .reveal.in { opacity: 1; transform: translateY(0); }
+
+      .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #fff; color: #000; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; letter-spacing: -0.01em; white-space: nowrap; border: 0; border-radius: 999px; padding: 16px 32px; box-shadow: 0 0 20px rgba(255,255,255,0.2); cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease; }
+      .btn:hover { transform: scale(1.03); box-shadow: 0 6px 24px rgba(255,255,255,0.28); }
+      .btn svg { width: 16px; height: 16px; }
+      .btn-primary { background: #0057DE; color: #fff; box-shadow: 0 4px 20px rgba(0,87,222,0.4); }
+      .btn-primary:hover { background: #0A63EA; }
+      .btn-ghost { background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.1); box-shadow: none; }
+      .btn-ghost:hover { background: rgba(255,255,255,0.1); }
+      .btn-block { width: 100%; }
+      .btn-sm { padding: 12px 22px; font-size: 14px; }
+
+      .eyebrow { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+      .section { padding: 72px 24px; position: relative; }
+      @media (min-width: 768px) { .section { padding: 96px 40px; } }
+      .container { max-width: 1400px; margin: 0 auto; }
+      .section-title { font-family: 'Instrument Serif', serif; font-weight: 400; letter-spacing: -0.02em; line-height: 1.05; font-size: clamp(30px, 4.2vw, 54px); color: #fff; }
+      .section-sub { color: rgba(255,255,255,0.4); font-size: 16px; margin-top: 10px; max-width: 40em; }
+      .card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; transition: all 0.4s; }
+      .card:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.18); }
+
+      .hero { position: relative; min-height: 92vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 120px 24px 60px; overflow: hidden; }
+      .hero-bg { position: absolute; inset: 0; z-index: 0; }
+      .hero-bg video { width: 100%; height: 100%; object-fit: cover; }
+      .hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, #050505 0%, rgba(5,5,5,0.8) 70%, rgba(5,5,5,0.4) 100%); }
+      .hero-inner { position: relative; z-index: 2; max-width: 1000px; }
+      .hero-pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 999px; padding: 9px 20px; margin-bottom: 28px; font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+      .hero-pill .dot { width: 8px; height: 8px; border-radius: 999px; background: #fff; animation: pulse 1.6s ease-in-out infinite; }
+      @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+      .hero-h1 { font-family: 'Instrument Serif', serif; font-weight: 400; letter-spacing: -0.03em; line-height: 1.0; font-size: clamp(42px, 7vw, 92px); color: #fff; text-shadow: 0 4px 24px rgba(0,0,0,0.85); }
+      .hero-sub { margin-top: 22px; color: rgba(255,255,255,0.6); font-size: clamp(16px, 1.8vw, 20px); max-width: 640px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+      .hero-ctas { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; margin-top: 36px; }
+      @media (min-width: 640px) { .hero-ctas { flex-direction: row; } }
+      .hero-stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 52px; }
+      .hero-stat .v { font-family: 'Instrument Serif', serif; font-size: clamp(30px, 4vw, 40px); color: #fff; }
+      .hero-stat .l { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 4px; }
+
+      .marquee-track { overflow: hidden; mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent); width: 100%; margin-top: 56px; }
+      .marquee-inner { display: flex; width: max-content; gap: 16px; animation: marquee 32s linear infinite; }
+      .marquee-rev { animation-direction: reverse; }
+      @keyframes marquee { to { transform: translateX(-50%); } }
+      .chip { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); border-radius: 999px; padding: 9px 20px; font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.8); white-space: nowrap; }
+
+      .countdown { text-align: center; padding: 56px 24px; }
+      .countdown-label { font-size: 9px; letter-spacing: 0.5em; text-transform: uppercase; color: rgba(255,255,255,0.2); font-weight: 800; margin-bottom: 36px; }
+      .countdown-cols { display: flex; align-items: flex-end; justify-content: center; gap: 0; }
+      .cd-block { display: flex; align-items: flex-end; }
+      .cd-sep { color: rgba(255,255,255,0.1); font-family: 'Instrument Serif', serif; font-size: clamp(28px, 7vw, 72px); line-height: 1; margin: 0 12px 14px; }
+      @media (min-width: 768px) { .cd-sep { margin: 0 20px 14px; } }
+      .cd-col { display: flex; flex-direction: column; align-items: center; }
+      .cd-num { font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(56px, 12vw, 128px); line-height: 1; letter-spacing: -0.04em; color: #fff; font-variant-numeric: tabular-nums; }
+      .cd-unit { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-top: 12px; }
+      .countdown-note { font-size: 9px; letter-spacing: 0.4em; text-transform: uppercase; color: rgba(255,255,255,0.15); font-weight: 800; margin: 36px 0; }
+      .countdown-ctas { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; }
+      @media (min-width: 640px) { .countdown-ctas { flex-direction: row; } }
+      .text-link { color: rgba(255,255,255,0.4); font-size: 14px; font-weight: 500; text-decoration: underline; text-underline-offset: 4px; transition: color 0.3s; }
+      .text-link:hover { color: rgba(255,255,255,0.7); }
+
+      .two-col { display: flex; flex-direction: column; align-items: center; gap: 40px; }
+      @media (min-width: 1024px) { .two-col { flex-direction: row; justify-content: space-between; } }
+      .col-text { flex: 1; max-width: 560px; text-align: center; }
+      @media (min-width: 1024px) { .col-text { text-align: left; } }
+      .col-media { flex: 1; width: 100%; display: flex; justify-content: center; }
+      @media (min-width: 1024px) { .col-media { justify-content: flex-end; } }
+      .frame { position: relative; max-width: 520px; width: 100%; }
+      .frame::before { content: ""; position: absolute; inset: -4px; background: rgba(255,255,255,0.2); filter: blur(24px); border-radius: 20px; opacity: 0; transition: opacity 0.7s; }
+      .frame:hover::before { opacity: 1; }
+      .frame img { position: relative; z-index: 1; width: 100%; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); }
+      .col-cta { margin-top: 24px; }
+
+      .grid-3 { display: grid; grid-template-columns: 1fr; gap: 20px; }
+      @media (min-width: 640px) { .grid-3 { grid-template-columns: repeat(2, 1fr); } }
+      @media (min-width: 1024px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+
+      .module-card { padding: 22px; cursor: pointer; display: flex; align-items: flex-start; gap: 16px; }
+      .module-num { font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 999px; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+      .module-title { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.9); line-height: 1.4; }
+      .module-hint { margin-top: 10px; display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.4); transition: all 0.3s; }
+      .module-hint svg { width: 14px; height: 14px; }
+      @media (min-width: 768px) { .module-hint { opacity: 0; } .module-card:hover .module-hint { opacity: 1; } }
+
+      .section-head-row { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; margin-bottom: 44px; }
+      @media (min-width: 768px) { .section-head-row { flex-direction: row; align-items: flex-end; justify-content: space-between; } }
+      .section-head-ctas { display: flex; flex-direction: column; gap: 12px; }
+      @media (min-width: 640px) { .section-head-ctas { flex-direction: row; align-items: center; } }
+
+      .project-card { padding: 26px 28px; display: flex; flex-direction: column; gap: 14px; }
+      .project-tag { font-size: 11px; font-weight: 800; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.2); }
+      .project-title { font-size: 19px; font-weight: 600; color: #fff; }
+      .project-desc { color: rgba(255,255,255,0.5); font-size: 14px; line-height: 1.6; flex: 1; }
+      .project-use { padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.06); color: rgba(255,255,255,0.3); font-size: 12px; line-height: 1.6; }
+      .portfolio-card { padding: 26px 28px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; border: 1px solid rgba(255,255,255,0.07); }
+      .portfolio-title { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.6; }
+      .portfolio-tag { font-size: 11px; font-weight: 800; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-bottom: 14px; }
+
+      .roi-card { padding: 28px; display: flex; flex-direction: column; gap: 12px; }
+      .roi-label { font-size: 11px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+      .roi-value { font-family: 'Instrument Serif', serif; font-size: clamp(40px, 5vw, 56px); line-height: 1; color: #fff; }
+      .roi-note { font-size: 13px; color: rgba(255,255,255,0.3); }
+
+      .role-table { width: 100%; border-collapse: collapse; border: 1px solid rgba(255,255,255,0.09); border-radius: 16px; overflow: hidden; }
+      .role-table th { text-align: left; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 800; padding: 18px 22px; color: #fff; border-bottom: 1px solid rgba(255,255,255,0.09); }
+      .role-table th + th { border-left: 1px solid rgba(255,255,255,0.09); }
+      .role-table td { padding: 18px 22px; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.09); }
+      .role-table tr:last-child td { border-bottom: 0; }
+      .role-table td:first-child { font-weight: 600; color: #fff; border-right: 1px solid rgba(255,255,255,0.09); }
+      .role-table td:last-child { color: rgba(255,255,255,0.5); }
+      .role-table tbody tr:hover { background: rgba(255,255,255,0.02); }
+      .table-wrap { overflow-x: auto; border-radius: 16px; }
+
+      .bullet { display: flex; gap: 16px; align-items: flex-start; }
+      .bullet-dot { width: 6px; height: 6px; border-radius: 999px; background: rgba(255,255,255,0.3); margin-top: 9px; flex-shrink: 0; }
+      .bullet-text { color: rgba(255,255,255,0.7); font-size: 16px; line-height: 1.5; }
+      .bullets { display: flex; flex-direction: column; gap: 18px; }
+
+      .news-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+      @media (min-width: 640px) { .news-grid { grid-template-columns: 1fr 1fr; } }
+      .news-item { overflow: hidden; border: 1px solid rgba(255,255,255,0.07); background: rgba(255,255,255,0.03); }
+      .news-item img { width: 100%; height: auto; object-fit: contain; opacity: 0.9; transition: opacity 0.7s; }
+      .news-item:hover img { opacity: 1; }
+      .news-col { display: flex; flex-direction: column; gap: 20px; }
+
+      .team-stat { padding: 28px; display: flex; flex-direction: column; gap: 12px; }
+      .team-stat .v { font-family: 'Instrument Serif', serif; font-size: clamp(48px, 8vw, 76px); line-height: 1; color: #fff; }
+      .team-stat .l { font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.7); }
+      .team-stat .s { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+      .company-row { padding: 32px; margin-top: 24px; }
+      .company-row .lbl { font-size: 11px; font-weight: 800; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 24px; }
+      .company-tags { display: flex; flex-wrap: wrap; gap: 12px; }
+      .company-tag { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.6); padding: 9px 16px; border-radius: 999px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.09); }
+
+      .testimonial { padding: 26px; display: flex; flex-direction: column; gap: 18px; }
+      .t-name { font-size: 14px; font-weight: 700; color: #fff; }
+      .t-salary { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+      .t-before { font-size: 11px; color: rgba(255,255,255,0.3); }
+      .t-after { font-size: 12px; font-weight: 700; color: #fff; }
+      .t-arrow { width: 12px; height: 12px; color: rgba(255,255,255,0.2); }
+      .t-quote { color: rgba(255,255,255,0.5); font-size: 14px; line-height: 1.7; }
+
+      .gold { position: relative; min-height: 70vh; display: flex; align-items: center; padding: 72px 24px; overflow: hidden; }
+      .gold-bg { position: absolute; inset: 0; }
+      .gold-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; transform: scale(1.02); }
+      .gold-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to right, #000 0%, rgba(0,0,0,0.5) 55%, transparent 100%), linear-gradient(to top, #000 0%, transparent 70%, rgba(0,0,0,0.3) 100%); }
+      .gold-inner { position: relative; z-index: 2; max-width: 1400px; margin: 0 auto; width: 100%; display: flex; flex-direction: column; gap: 48px; }
+      @media (min-width: 1024px) { .gold-inner { flex-direction: row; align-items: center; justify-content: space-between; } }
+      .gold-text { display: none; max-width: 420px; }
+      @media (min-width: 1024px) { .gold-text { display: block; } }
+      .gold-title { font-family: 'Instrument Serif', serif; font-size: clamp(56px, 8vw, 96px); line-height: 0.95; letter-spacing: -0.02em; color: #fff; margin-bottom: 28px; }
+      .gold-sub { color: rgba(255,255,255,0.5); font-size: 20px; line-height: 1.6; }
+      .salary-card { position: relative; width: 100%; max-width: 520px; margin-left: auto; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 40px; padding: 44px 48px; backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); overflow: hidden; }
+      .salary-card::before { content: ""; position: absolute; top: -96px; right: -96px; width: 192px; height: 192px; background: rgba(255,255,255,0.04); filter: blur(80px); border-radius: 999px; }
+      .salary-title { font-family: 'Instrument Serif', serif; font-size: clamp(36px, 5vw, 48px); color: #fff; margin-bottom: 36px; }
+      .salary-item { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 24px; }
+      .salary-check { width: 20px; height: 20px; border-radius: 999px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+      .salary-check svg { width: 12px; height: 12px; stroke: rgba(255,255,255,0.4); }
+      .salary-text { color: rgba(255,255,255,0.6); font-size: 16px; line-height: 1.5; }
+      .salary-outcome { margin: 28px 0 0; }
+      .salary-outcome .lbl { font-size: 11px; font-weight: 800; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 8px; }
+      .salary-outcome .val { font-family: 'Instrument Serif', serif; font-size: clamp(56px, 8vw, 88px); color: #fff; line-height: 1; }
+
+      .faq-item { border-radius: 24px; padding: 24px 28px; border: 1px solid rgba(255,255,255,0.05); cursor: pointer; transition: all 0.4s; }
+      .faq-item.open { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.04); }
+      .faq-q { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+      .faq-q h3 { font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(18px, 2.2vw, 24px); color: #fff; display: flex; align-items: center; gap: 20px; }
+      .faq-num { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 14px; color: rgba(255,255,255,0.1); }
+      .faq-icon { width: 40px; height: 40px; border-radius: 999px; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.5s; color: rgba(255,255,255,0.3); }
+      .faq-item.open .faq-icon { transform: rotate(135deg); background: #fff; color: #000; }
+      .faq-icon svg { width: 20px; height: 20px; }
+      .faq-a { display: grid; grid-template-rows: 0fr; opacity: 0; transition: all 0.5s ease; }
+      .faq-item.open .faq-a { grid-template-rows: 1fr; opacity: 1; margin-top: 28px; }
+      .faq-a-inner { overflow: hidden; }
+      .faq-a-inner p { color: rgba(255,255,255,0.5); font-size: 16px; line-height: 1.7; max-width: 42em; }
+      @media (min-width: 768px) { .faq-a-inner p { margin-left: 44px; } }
+      .faq-list { display: flex; flex-direction: column; gap: 16px; max-width: 1000px; margin: 0 auto; }
+
+      .final { text-align: center; padding: 120px 24px; }
+      .final-label { font-size: 12px; font-weight: 800; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-bottom: 28px; }
+      .final-title { font-family: 'Instrument Serif', serif; font-size: clamp(36px, 6vw, 72px); line-height: 1.1; letter-spacing: -0.02em; color: #fff; margin-bottom: 26px; }
+      .final-sub { color: rgba(255,255,255,0.4); font-size: clamp(16px, 2.2vw, 22px); line-height: 1.6; margin-bottom: 44px; }
+      .final-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 44px; }
+      .final-tag { font-size: 11px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 999px; padding: 9px 20px; }
+      .final-ctas { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; }
+      @media (min-width: 640px) { .final-ctas { flex-direction: row; } }
+
+      .modal { position: fixed; inset: 0; z-index: 900; display: none; align-items: center; justify-content: center; padding: 24px; background: rgba(0,0,0,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+      .modal.open { display: flex; }
+      .modal-card { width: 100%; max-width: 680px; max-height: 90vh; display: flex; flex-direction: column; background: #0a0a0a; border: 1px solid rgba(255,255,255,0.1); border-radius: 32px; overflow: hidden; box-shadow: 0 0 80px rgba(255,255,255,0.08); }
+      .modal-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 36px 40px 0; }
+      .modal-close { width: 40px; height: 40px; border: 0; border-radius: 999px; background: transparent; color: rgba(255,255,255,0.5); cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.3s; }
+      .modal-close:hover { color: #fff; background: rgba(255,255,255,0.05); }
+      .modal-close svg { width: 22px; height: 22px; }
+      .modal-body { flex: 1; overflow-y: auto; padding: 20px 40px 40px; }
+      .modal-section { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.3); font-weight: 800; margin-bottom: 12px; }
+      .modal-title { font-family: 'Instrument Serif', serif; font-size: clamp(26px, 4vw, 40px); color: #fff; line-height: 1.15; }
+      .modal-list { list-style: none; display: flex; flex-direction: column; gap: 18px; margin-top: 28px; }
+      .modal-list li { display: flex; gap: 18px; align-items: flex-start; }
+      .modal-list li::before { content: ""; width: 6px; height: 6px; border-radius: 999px; background: rgba(255,255,255,0.2); margin-top: 9px; flex-shrink: 0; transition: background 0.4s; }
+      .modal-list li:hover::before { background: #fff; }
+      .modal-list span { color: rgba(255,255,255,0.6); font-size: 16px; line-height: 1.6; }
+      .modal-cta { width: 100%; margin-top: 36px; }
+
+      .loading-hide { display: none !important; }
+      .loader { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 1700; background: #060606; display: flex; align-items: center; justify-content: center; transition: opacity 0.5s ease, visibility 0.5s ease; }
+      .loader.hide { opacity: 0; visibility: hidden; }
+      .loader-text { font-family: 'Inter', sans-serif; font-weight: 600; color: rgba(153,153,153,0.65); letter-spacing: -0.08px; font-size: 16px; background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.85) 50%, transparent 100%); background-size: 152px 100%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 2.166s linear infinite; }
+      @keyframes shimmer { 0% { background-position: -152px 0; } 100% { background-position: 152px 0; } }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loader" id="loader"><p class="loader-text">Patience—you're about to be impressed.</p></div>
+
+    <div class="app-shell" id="app">
+      <aside class="sidebar">
+        <a href="/" class="brand-serif sidebar-brand">thecodingcompany</a>
+        <nav class="sidebar-nav">
+          <a href="/" class="sidebar-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 10.5 12 3l9 7.5M5 9.5V21h5v-6h4v6h5V9.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="label">Home</span></a>
+          <a href="/bootcamps" class="sidebar-link active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19V6m0 13c0 1.1 4.5 2 10 2V8c-5.5 0-10 .9-10 2m0 9H3m2 0c0 1.1 4.5 2 10 2M6 8v11" stroke-linecap="round" stroke-linejoin="round"/><path d="m13 4 1.2 2.8L17 8l-2.8 1.2L13 12l-1.2-2.8L9 8l2.8-1.2L13 4z" fill="currentColor" stroke="none"/></svg><span class="label">Bootcamps</span></a>
+          <a href="/vybeclub" class="sidebar-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M8 21h8m-4-5v5M12 4a5 5 0 0 1 5 5c0 2.1-1.3 3.9-3 4.7V16H10v-2.3c-1.7-.8-3-2.6-3-4.7a5 5 0 0 1 5-5z" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="label">100 Club</span></a>
+          <a href="/domains" class="sidebar-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span class="label">Domains</span></a>
+          <a href="/gigs" class="sidebar-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18" stroke-linecap="round"/></svg><span class="label">Gigs</span></a>
+        </nav>
+        <div class="sidebar-bottom">
+          <a href="/webinars" class="sidebar-webinars"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10 9 5 3-5 3V9z" fill="currentColor" stroke="none"/></svg>Webinars</a>
+          <a href="/login" class="btn-login">Member Login</a>
+        </div>
+      </aside>
+
+      <main class="main-scroll">
+        <header class="mobile-header">
+          <a href="/" class="brand-serif mobile-brand">thecodingcompany</a>
+          <div class="mobile-actions">
+            <a href="/login" class="mobile-login" aria-label="Login"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6" stroke-linecap="round"/></svg></a>
+            <button class="mobile-cta" type="button" onclick="window.location.href='/become-a-member'">Become a member</button>
+          </div>
+        </header>
+
+        <div class="content-wrap">
+          <!-- HERO -->
+          <section class="hero">
+            <div class="hero-bg">
+              <video autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+                <source src="/dds3_1_rqhg7x.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="hero-inner reveal">
+              <div class="hero-pill"><span class="dot"></span><span id="heroDate">June 14th</span> Cohort — Only 100 Seats</div>
+              <h1 class="hero-h1">From ₹4 LPA to <span style="white-space:nowrap">₹20+ LPA</span> AI Engineer in 45 Days</h1>
+              <p class="hero-sub">Build real AI products, master LLMs, Agents, and get job-ready with hands-on live training.</p>
+              <div class="hero-ctas">
+                <a href="/become-a-member" class="btn">Secure Your Seat Now</a>
+                <a href="#ai-engineer" class="btn btn-ghost">See Full Curriculum <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14m-6-6 6 6-6 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </div>
+              <div class="hero-stats">
+                <div class="hero-stat"><div class="v">45</div><div class="l">Days Live Training</div></div>
+                <div class="hero-stat"><div class="v">5</div><div class="l">Real AI Projects</div></div>
+                <div class="hero-stat"><div class="v">100</div><div class="l">Seats — <span id="statDate">June 14th</span></div></div>
+                <div class="hero-stat"><div class="v">₹18K</div><div class="l">One-Time Investment</div></div>
+              </div>
+              <div class="marquee-track">
+                <div class="marquee-inner" id="salaryMarquee"></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- COUNTDOWN -->
+          <section class="countdown">
+            <p class="countdown-label reveal">Cohort Starts In</p>
+            <div class="countdown-cols reveal">
+              <div class="cd-block">
+                <div class="cd-col"><div class="cd-num" id="cdDays">00</div><div class="cd-unit">Days</div></div>
+              </div>
+              <div class="cd-block"><div class="cd-sep">/</div><div class="cd-col"><div class="cd-num" id="cdHours">00</div><div class="cd-unit">Hours</div></div></div>
+              <div class="cd-block"><div class="cd-sep">/</div><div class="cd-col"><div class="cd-num" id="cdMins">00</div><div class="cd-unit">Min</div></div></div>
+              <div class="cd-block"><div class="cd-sep">/</div><div class="cd-col"><div class="cd-num" id="cdSecs">00</div><div class="cd-unit">Sec</div></div></div>
+            </div>
+            <p class="countdown-note"><span id="noteDate">June 14th, 2026</span> · 100 Seats Only · Applications Closing Soon</p>
+            <div class="countdown-ctas reveal">
+              <a href="/become-a-member" class="btn">Apply Now</a>
+              <a href="https://wa.me/9182160152" target="_blank" rel="noopener noreferrer" class="text-link">Talk to a Mentor</a>
+            </div>
+          </section>
+
+          <!-- CERTIFICATION -->
+          <section class="section">
+            <div class="container two-col">
+              <div class="col-text reveal">
+                <p class="eyebrow" style="margin-bottom:16px">Certification</p>
+                <h2 class="section-title">Get Certified from <span class="serif-i">Top IITs</span></h2>
+                <p class="section-sub">Earn a recognized certificate from top IITs. Validate your AI expertise with industry-respected certification that employers trust.</p>
+                <div class="col-cta"><a href="/become-a-member" class="btn">Claim Your Certificate</a></div>
+              </div>
+              <div class="col-media reveal">
+                <div class="frame"><img src="/whatsapp-image-2026-05-24.png" alt="Top IITs Certification" loading="lazy" /></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- CURRICULUM -->
+          <section class="section" id="ai-engineer">
+            <div class="container">
+              <div class="section-head-row reveal">
+                <div>
+                  <p class="eyebrow" style="margin-bottom:16px">Full Curriculum</p>
+                  <h2 class="section-title">Become an AI Engineer in 45 Days</h2>
+                  <p class="section-sub">15 battle-tested modules. Built with top AI engineering teams in mind.</p>
+                </div>
+                <div class="section-head-ctas">
+                  <a href="#ai-engineer" class="btn btn-ghost btn-sm" onclick="document.getElementById('moduleList').scrollIntoView({behavior:'smooth'});return false;">Download Syllabus <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3v12m-4-4 4 4 4-4M5 21h14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                  <a href="/become-a-member" class="btn btn-sm">JOIN NOW <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14m-6-6 6 6-6 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </div>
+              </div>
+              <div class="grid-3" id="moduleList">
+                <div class="card module-card reveal" data-module="0"><span class="module-num">01</span><div><h3 class="module-title">Foundations of Software Engineering</h3><div class="module-hint">View Syllabus <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14m-6-6 6 6-6 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div></div>
+                <div class="card module-card reveal" data-module="1"><span class="module-num">02</span><div><h3 class="module-title">Advanced Python Engineering</h3><div class="module-hint">View Syllabus <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14m-6-6 6 6-6 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div></div>
+                <div class="card module-card reveal" data-module="2"><span class="module-num">03</span><div><h3 class="module-title">Backend Architecture &amp; API Systems</h3><div class="module-hint">View Syllabus <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14m-6-6 6 6-6 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div></div>
+                <div class="card module-card reveal" data-module="3"><span class="module-num">04</span><div><h3 class="module-title">Scalable System Design</h3><div class="module-hint">View Syllabus <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14m-6-6 6 6-6 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div></div>
+                <div class="card module-card reveal" data-module="4"><span class="module-num">05</span><div><h3 class="module-title">Data Systems &amp; Database Engineering</h3><div class="module-hint">View Syllabus <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14m-6-6 6 6-6 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div></div>
+                <div class="card module-card reveal" data-module="5"><span class="module-num">06</span><div><h3 class="module-title">Data Engineering for AI Systems</h3><div class="module-hint">View Syllabus <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14m-6-6 6 6-6 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div></div>
+                <div class="card module-card reveal" data-module="6"><span class="module-num">07</span><div><h3 class="module-title">Large Language Model Engineering</h3><div class="module-hint">View Syllabus <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14m-6-6 6 6-6 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div></div>
+                <div class="card module-card reveal" data-module="7"><span class="module-num">08</span><div><h3 class="module-title">Prompt Engineering &amp; AI Workflows</h3><div class="module-hint">View Syllabus <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14m-6-6 6 6-6 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div></div>
+                <div class="card module-card reveal" data-module="8"><span class="module-num">09</span><div><h3 class="module-title">Semantic Search &amp; Embedding Systems</h3><div class="module-hint">View Syllabus <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14m-6-6 6 6-6 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div></div>
+                <div class="card module-card reveal" data-module="9"><span class="module-num">10</span><div><h3 class="module-title">Retrieval-Augmented Systems (RAG)</h3><div class="module-hint">View Syllabus <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14m-6-6 6 6-6 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div></div>
+                <div class="card module-card reveal" data-module="10"><span class="module-num">11</span><div><h3 class="module-title">Agentic Systems &amp; Autonomous Workflows</h3><div class="module-hint">View Syllabus <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14m-6-6 6 6-6 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div></div>
+                <div class="card module-card reveal" data-module="11"><span class="module-num">12</span><div><h3 class="module-title">Model Fine-Tuning &amp; Customization</h3><div class="module-hint">View Syllabus <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14m-6-6 6 6-6 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div></div>
+                <div class="card module-card reveal" data-module="12"><span class="module-num">13</span><div><h3 class="module-title">Deployment, MLOps &amp; LLMOps</h3><div class="module-hint">View Syllabus <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14m-6-6 6 6-6 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div></div>
+                <div class="card module-card reveal" data-module="13"><span class="module-num">14</span><div><h3 class="module-title">AI System Design &amp; Professional Readiness</h3><div class="module-hint">View Syllabus <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14m-6-6 6 6-6 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div></div>
+                <div class="card module-card reveal" data-module="14"><span class="module-num">15</span><div><h3 class="module-title">Capstone Engineering &amp; Final Demonstration</h3><div class="module-hint">View Syllabus <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14m-6-6 6 6-6 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- MODULE MODAL -->
+          <div class="modal" id="moduleModal">
+            <div class="modal-card">
+              <div class="modal-head">
+                <div>
+                  <p class="modal-section" id="mSection">Section 01</p>
+                  <h3 class="modal-title" id="mTitle"></h3>
+                </div>
+                <button class="modal-close" type="button" aria-label="Close" id="mClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 18 18 6M6 6l12 12" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              </div>
+              <div class="modal-body">
+                <ul class="modal-list" id="mList"></ul>
+                <a href="/become-a-member" class="btn btn-block modal-cta">GOT IT — SECURE MY SEAT</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECTS -->
+          <section class="section" id="projects">
+            <div class="container">
+              <p class="eyebrow reveal" style="margin-bottom:16px">Real Work. Real Skills.</p>
+              <h2 class="section-title reveal">Build 5 Real AI Products</h2>
+              <p class="section-sub reveal" style="margin-bottom:48px">Not slides. Not theory. Deployable systems you can show recruiters on day one.</p>
+              <div class="grid-3">
+                <div class="card project-card reveal"><span class="project-tag">Project 01</span><h3 class="project-title">AI Resume Analyzer</h3><p class="project-desc">Parses real resumes, scores them against job descriptions using LLMs, and returns structured feedback with missing skill gaps.</p><div class="project-use">Used by hiring tools, HR platforms, and job-seekers to optimize applications at scale.</div></div>
+                <div class="card project-card reveal"><span class="project-tag">Project 02</span><h3 class="project-title">AI Chatbot with Memory + RAG</h3><p class="project-desc">Persistent conversational AI that retrieves from your own documents using vector search and maintains session memory across turns.</p><div class="project-use">Powers enterprise knowledge assistants, internal Q&amp;A bots, and customer support automation.</div></div>
+                <div class="card project-card reveal"><span class="project-tag">Project 03</span><h3 class="project-title">Autonomous AI Agent System</h3><p class="project-desc">Multi-step reasoning agent that plans, uses tools, browses data sources, and executes tasks without human intervention.</p><div class="project-use">Automates complex research, report generation, and decision support workflows.</div></div>
+                <div class="card project-card reveal"><span class="project-tag">Project 04</span><h3 class="project-title">SaaS AI Tool (Deployable)</h3><p class="project-desc">End-to-end production SaaS with auth, billing logic, an LLM core, and a deployable backend — live on cloud from day one.</p><div class="project-use">Template for B2B SaaS businesses, indie products, and freelance client projects.</div></div>
+                <div class="card project-card reveal"><span class="project-tag">Project 05</span><h3 class="project-title">End-to-End AI Application</h3><p class="project-desc">Full-stack application spanning frontend, API layer, vector database, LLM orchestration, and CI/CD deployment.</p><div class="project-use">Proof of engineering capability across the entire AI product stack.</div></div>
+                <div class="card portfolio-card reveal">
+                  <div>
+                    <p class="portfolio-tag">Your Portfolio</p>
+                    <p class="portfolio-title">By the end of the program you walk away with 5 production-grade AI projects. Your GitHub will speak louder than any certificate.</p>
+                  </div>
+                  <a href="/become-a-member" class="btn btn-primary btn-block">Apply Now</a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ROI -->
+          <section class="section" id="roi">
+            <div class="container">
+              <p class="eyebrow reveal" style="margin-bottom:16px">Return on Investment</p>
+              <div class="section-head-row reveal">
+                <div>
+                  <h2 class="section-title">₹18,000 Investment → ₹20 LPA Career</h2>
+                  <p class="section-sub">One of the highest ROI career moves you can make in 2026.</p>
+                </div>
+                <a href="/become-a-member" class="btn">Join the Cohort</a>
+              </div>
+              <div class="grid-3">
+                <div class="card roi-card reveal"><span class="roi-label">Course Investment</span><div class="roi-value">₹18,000</div><span class="roi-note">One time. No hidden fees.</span></div>
+                <div class="card roi-card reveal"><span class="roi-label">Typical Salary Before</span><div class="roi-value">₹3–6 LPA</div><span class="roi-note">Most engineers before the program.</span></div>
+                <div class="card roi-card reveal"><span class="roi-label">Expected Salary After</span><div class="roi-value">₹12–25 LPA</div><span class="roi-note">Based on past cohort outcomes.</span></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- CAREER OUTCOMES -->
+          <section class="section" id="outcomes">
+            <div class="container">
+              <p class="eyebrow reveal" style="margin-bottom:16px">Career Outcomes</p>
+              <h2 class="section-title reveal" style="font-size:clamp(28px,3.8vw,48px);margin-bottom:36px">Job Roles You Can Apply For After This Program</h2>
+              <div class="table-wrap reveal">
+                <table class="role-table">
+                  <thead>
+                    <tr>
+                      <th>Role</th>
+                      <th>What You will Do</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>AI Engineer</td><td>Build LLM-powered products end to end</td></tr>
+                    <tr><td>LLM Application Developer</td><td>Integrate LLMs into enterprise systems</td></tr>
+                    <tr><td>RAG Engineer</td><td>Design and optimize retrieval-augmented systems</td></tr>
+                    <tr><td>AI Agents Engineer</td><td>Build autonomous agentic workflows</td></tr>
+                    <tr><td>GenAI Developer</td><td>Ship generative AI features across products</td></tr>
+                    <tr><td>Backend + AI Developer</td><td>Strong backend with deep AI integration</td></tr>
+                    <tr><td>MLOps / LLMOps Engineer</td><td>Deploy and monitor AI at scale</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="reveal" style="margin-top:36px;display:flex;justify-content:center"><a href="/become-a-member" class="btn btn-primary">Apply Now — <span id="applyDate">June 14th</span> Cohort</a></div>
+            </div>
+          </section>
+
+          <!-- INDUSTRY REALITY CHECK -->
+          <section class="section">
+            <div class="container two-col">
+              <div class="col-media reveal" style="order:-1">
+                <div style="display:grid;grid-template-columns:1fr;gap:20px;width:100%;max-width:520px" class="news-grid-lg">
+                  <div class="news-col">
+                    <div class="card news-item"><img src="/layoff-news-2.webp" alt="Meta Layoffs" loading="lazy" /></div>
+                    <div class="card news-item"><img src="/layoff-news-3.webp" alt="Google Layoffs" loading="lazy" /></div>
+                  </div>
+                  <div class="news-col" style="margin-top:24px">
+                    <div class="card news-item"><img src="/layoff-news-1.webp" alt="Tech Layoffs 2026" loading="lazy" /></div>
+                    <div class="card news-item"><img src="/layoff-news-4.webp" alt="35,000+ Jobs Cut" loading="lazy" /></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-text reveal">
+                <p class="eyebrow" style="margin-bottom:16px">Industry Reality Check</p>
+                <h2 class="section-title" style="font-size:clamp(36px,5vw,64px);line-height:1.1;margin-bottom:24px">Adapt or <span class="serif-i">Fade Away.</span></h2>
+                <p class="section-sub" style="font-size:18px;margin-bottom:28px">Traditional engineering is no longer enough. The AI shift is not coming — it is already here.</p>
+                <div class="bullets">
+                  <div class="bullet"><span class="bullet-dot"></span><p class="bullet-text">35,000+ tech jobs eliminated in early 2026 as AI automation reaches critical mass.</p></div>
+                  <div class="bullet"><span class="bullet-dot"></span><p class="bullet-text">Meta and Google are actively restructuring towards AI-only teams.</p></div>
+                  <div class="bullet"><span class="bullet-dot"></span><p class="bullet-text">Contractor roles are being phased out in favor of autonomous AI agents.</p></div>
+                  <div class="bullet"><span class="bullet-dot"></span><p class="bullet-text">Salaries for standard engineers are stagnating while AI specialists see 3x growth.</p></div>
+                  <div class="bullet"><span class="bullet-dot"></span><p class="bullet-text">If your work can be prompted, your job can be automated.</p></div>
+                </div>
+                <div class="col-cta"><a href="/become-a-member" class="btn btn-primary">Secure My Seat</a></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- WHO TEACHES -->
+          <section class="section">
+            <div class="container">
+              <p class="eyebrow reveal" style="margin-bottom:16px">Who Teaches You</p>
+              <h2 class="section-title reveal" style="max-width:900px">Learn From a Team That Builds AI Systems — Not Just Teaches Them</h2>
+              <p class="section-sub reveal" style="margin-bottom:44px">This is not a single-instructor course. You are learning from a team of experienced AI engineers who have built real-world systems and mentored thousands of students into high-paying AI roles.</p>
+              <div class="grid-3 reveal" style="margin-bottom:32px">
+                <div class="card team-stat"><div class="v">8+</div><div class="l">Years Average Industry Experience</div><div class="s">Per team member</div></div>
+                <div class="card team-stat"><div class="v">120+</div><div class="l">AI Applications Built &amp; Deployed</div><div class="s">Real production systems</div></div>
+                <div class="card team-stat"><div class="v">3600+</div><div class="l">Students Trained &amp; Mentored</div><div class="s">Into high-paying AI roles</div></div>
+              </div>
+              <div class="card company-row reveal">
+                <p class="lbl">Our mentors and trainers have professional experience at companies including</p>
+                <div class="company-tags">
+                  <span class="company-tag">NVIDIA</span><span class="company-tag">Google</span><span class="company-tag">Accenture</span><span class="company-tag">Cognizant</span><span class="company-tag">Infosys</span><span class="company-tag">TCS</span><span class="company-tag">Capgemini</span><span class="company-tag">Deloitte</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- TESTIMONIALS -->
+          <section class="section">
+            <div class="container">
+              <p class="eyebrow reveal" style="margin-bottom:16px">Transformation Stories</p>
+              <h2 class="section-title reveal">What Our Engineers Say</h2>
+              <p class="section-sub reveal" style="margin-bottom:48px">Real people. Real numbers. Real outcomes.</p>
+              <div class="grid-3">
+                <div class="card testimonial reveal"><div><p class="t-name">Rahul Kumar</p><div class="t-salary"><span class="t-before">₹4.2 LPA · TCS</span><svg class="t-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="t-after">₹12 LPA · AI Engineer</span></div></div><p class="t-quote">"I had zero AI experience. Within 5 months I built 3 agents and landed a full-time AI Engineer role. The structured curriculum and hands-on projects made all the difference."</p></div>
+                <div class="card testimonial reveal"><div><p class="t-name">Priya Sharma</p><div class="t-salary"><span class="t-before">₹5 LPA · Python Dev</span><svg class="t-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="t-after">₹15 LPA · LLM Developer</span></div></div><p class="t-quote">"The RAG and LLM modules were game-changers. Got placed at a Series B startup within 2 weeks of completing the program. Worth every rupee."</p></div>
+                <div class="card testimonial reveal"><div><p class="t-name">Arjun Verma</p><div class="t-salary"><span class="t-before">₹6 LPA · Backend Dev</span><svg class="t-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="t-after">₹21 LPA · GenAI Developer</span></div></div><p class="t-quote">"The Coding Company's capstone project became my portfolio piece. Three offers in one week — I picked ₹21 LPA. Completely unreal experience."</p></div>
+                <div class="card testimonial reveal"><div><p class="t-name">Neha Mehta</p><div class="t-salary"><span class="t-before">₹3.8 LPA · Fresher</span><svg class="t-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="t-after">₹13 LPA · RAG Engineer</span></div></div><p class="t-quote">"The mentors don't just teach — they push you to build things that matter. Best investment I've made in my entire career."</p></div>
+                <div class="card testimonial reveal"><div><p class="t-name">Saurabh Kulkarni</p><div class="t-salary"><span class="t-before">₹7 LPA · 3 Yrs Backend</span><svg class="t-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="t-after">₹19 LPA · MLOps Engineer</span></div></div><p class="t-quote">"The Coding Company helped me pivot from traditional backend to AI in under 6 months. The deployment module alone was worth the full fee."</p></div>
+                <div class="card testimonial reveal"><div><p class="t-name">Divya Rajput</p><div class="t-salary"><span class="t-before">₹4.5 LPA · IT Support</span><svg class="t-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="t-after">Freelance AI Agency · ₹22 LPA</span></div></div><p class="t-quote">"I launched my own AI automation agency after the program. Now earning more than my previous salary — from home, on my own terms."</p></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- GOLD STANDARD + SALARY -->
+          <section class="gold">
+            <div class="gold-bg"><img src="/vybe-nature.jpg" alt="Nature and Tech" loading="lazy" /></div>
+            <div class="gold-inner">
+              <div class="gold-text reveal">
+                <h2 class="gold-title">The New Gold Standard.</h2>
+                <p class="gold-sub">The AI transition is rewarding early movers with extreme growth.</p>
+              </div>
+              <div class="salary-card reveal">
+                <h3 class="salary-title">Salary Reality</h3>
+                <div class="salary-item"><div class="salary-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 13l4 4L19 7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p class="salary-text">AI Salaries in Bengaluru hit ₹22 LPA benchmark</p></div>
+                <div class="salary-item"><div class="salary-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 13l4 4L19 7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p class="salary-text">Freshers landing ₹25 LPA at GenAI startups</p></div>
+                <div class="salary-item"><div class="salary-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 13l4 4L19 7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p class="salary-text">GenAI roles see 200% hike in India 2026</p></div>
+                <div class="salary-item"><div class="salary-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 13l4 4L19 7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p class="salary-text">Top positions paying ₹30 LPA+ currently</p></div>
+                <div class="salary-outcome"><div class="lbl">Expected Outcome</div><div class="val">₹20 LPA+</div></div>
+                <div style="margin-top:32px"><a href="/become-a-member" class="btn btn-primary btn-block" style="border-radius:18px;padding:20px">SECURE MY SEAT</a></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- FAQ -->
+          <section class="section" id="faq">
+            <div class="container">
+              <p class="eyebrow reveal" style="margin-bottom:16px;text-align:center">Common Questions</p>
+              <h2 class="section-title reveal" style="text-align:center;margin-bottom:44px">Got Doubts? We Got <span class="serif-i">Answers.</span></h2>
+              <div class="faq-list">
+                <div class="card faq-item reveal">
+                  <div class="faq-q"><h3><span class="faq-num">01</span>Are the classes live or recorded?</h3><div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 5v14M5 12h14" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+                  <div class="faq-a"><div class="faq-a-inner"><p>All classes are 100% LIVE. We don't believe in passive learning through old recordings. You interact with mentors in real-time, ask questions, and solve problems together.</p></div></div>
+                </div>
+                <div class="card faq-item reveal">
+                  <div class="faq-q"><h3><span class="faq-num">02</span>What are the class timings?</h3><div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 5v14M5 12h14" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+                  <div class="faq-a"><div class="faq-a-inner"><p>Classes are held from 8:00 PM to 9:00 PM IST, Monday to Friday. This schedule is specifically designed to accommodate working professionals and students.</p></div></div>
+                </div>
+                <div class="card faq-item reveal">
+                  <div class="faq-q"><h3><span class="faq-num">03</span>In which language will the training be conducted?</h3><div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 5v14M5 12h14" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+                  <div class="faq-a"><div class="faq-a-inner"><p>The teaching is conducted in Telugu to ensure clear understanding of complex concepts, while all slides, code, and technical documentation are in English (Industry Standard).</p></div></div>
+                </div>
+                <div class="card faq-item reveal">
+                  <div class="faq-q"><h3><span class="faq-num">04</span>How long will I have access to class recordings?</h3><div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 5v14M5 12h14" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+                  <div class="faq-a"><div class="faq-a-inner"><p>You get lifelong access to all session recordings and course materials. You can revisit any topic whenever you need a refresher in the future.</p></div></div>
+                </div>
+                <div class="card faq-item reveal">
+                  <div class="faq-q"><h3><span class="faq-num">05</span>Is there any support if I get stuck?</h3><div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 5v14M5 12h14" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+                  <div class="faq-a"><div class="faq-a-inner"><p>Yes! You get dedicated support. Whether it's a bug in your code or a conceptual doubt, our mentors and community are here to ensure you never get stuck.</p></div></div>
+                </div>
+                <div class="card faq-item reveal">
+                  <div class="faq-q"><h3><span class="faq-num">06</span>What are the career outcomes of this bootcamp?</h3><div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 5v14M5 12h14" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+                  <div class="faq-a"><div class="faq-a-inner"><p>You will graduate with 5 production-grade AI projects, a professionally optimized resume, and the skills to apply for roles like AI Engineer, RAG Engineer, and LLM Developer. We also provide salary negotiation playbooks and interview preparation.</p></div></div>
+                </div>
+                <div class="card faq-item reveal">
+                  <div class="faq-q"><h3><span class="faq-num">07</span>When will I receive my refund if a refund is approved?</h3><div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 5v14M5 12h14" stroke-width="2" stroke-linecap="round"/></svg></div></div>
+                  <div class="faq-a"><div class="faq-a-inner"><p>Any approved refunds will be processed only after the completion of the bootcamp period. Refunds will not be issued before the bootcamp starts or during the ongoing bootcamp.</p></div></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- FINAL WORD -->
+          <section class="final">
+            <div class="reveal">
+              <p class="final-label">The Final Word</p>
+              <h2 class="final-title">AI is not the future.<br />It is already replacing <span class="serif-i">traditional roles.</span></h2>
+              <p class="final-sub">The only question is — will you adapt,<br class="hidden-md" /> or get left behind?</p>
+              <div class="final-tags">
+                <span class="final-tag">Only 100 Seats Available</span>
+                <span class="final-tag">Applications Closing Soon</span>
+                <span class="final-tag"><span id="finalDate">June 14th</span> Batch — No Delay</span>
+              </div>
+              <div class="final-ctas">
+                <a href="/become-a-member" class="btn" style="padding:20px 48px;font-size:16px">Secure Your Seat for June 14th</a>
+                <a href="https://wa.me/9182160152" target="_blank" rel="noopener noreferrer" class="text-link">Talk to a Mentor First</a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <nav class="bottom-nav">
+        <div class="bottom-nav-inner">
+
+          <a href="/" class="bottom-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 10.5 12 3l9 7.5M5 9.5V21h5v-6h4v6h5V9.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Home</span></a>
+
+          <a href="/bootcamps" class="bottom-link active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19V6m0 13c0 1.1 4.5 2 10 2V8c-5.5 0-10 .9-10 2m0 9H3m2 0c0 1.1 4.5 2 10 2M6 8v11" stroke-linecap="round" stroke-linejoin="round"/><path d="m13 4 1.2 2.8L17 8l-2.8 1.2L13 12l-1.2-2.8L9 8l2.8-1.2L13 4z" fill="currentColor" stroke="none"/></svg><span>Bootcamps</span></a>
+
+          <a href="/vybeclub" class="bottom-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M8 21h8m-4-5v5M12 4a5 5 0 0 1 5 5c0 2.1-1.3 3.9-3 4.7V16H10v-2.3c-1.7-.8-3-2.6-3-4.7a5 5 0 0 1 5-5z" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Club</span></a>
+
+          <a href="/domains" class="bottom-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Domains</span></a>
+
+          <a href="/gigs" class="bottom-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18" stroke-linecap="round"/></svg><span>Gigs</span></a>
+
+          <a href="/webinars" class="bottom-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10 9 5 3-5 3V9z" fill="currentColor" stroke="none"/></svg><span>Webinars</span></a>
+
+          </div>
+      </nav>
+
+    </div>
+
+    <script>
+      (function () {
+        var loader = document.getElementById('loader');
+        window.addEventListener('load', function () { setTimeout(function () { loader.classList.add('hide'); }, 400); });
+        setTimeout(function () { loader.classList.add('hide'); }, 3000);
+
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+        var salaries = ["₹12 LPA", "₹14 LPA", "₹15 LPA", "₹16 LPA", "₹18 LPA", "₹19 LPA", "₹20 LPA", "₹21 LPA", "₹22 LPA", "₹23 LPA", "₹24 LPA", "₹25 LPA", "₹26 LPA", "₹27 LPA", "₹18 LPA", "₹21 LPA", "₹23 LPA", "₹26 LPA"];
+        var marquee = document.getElementById('salaryMarquee');
+        var chips = salaries.concat(salaries, salaries).map(function (s) {
+          var span = document.createElement('span');
+          span.className = 'chip';
+          span.textContent = s;
+          return span;
+        });
+        chips.forEach(function (c) { marquee.appendChild(c); });
+
+        function nextCohortStart() {
+          var now = new Date();
+          var ist = new Date(now.getTime() + 5.5 * 3600000);
+          var diff = (6 - ist.getUTCDay() + 7) % 7;
+          var t = new Date(ist.getTime());
+          t.setUTCDate(t.getUTCDate() + diff);
+          t.setUTCHours(0, 0, 0, 0);
+          return new Date(t.getTime() - 5.5 * 3600000);
+        }
+        var target = nextCohortStart();
+        if (target.getTime() <= Date.now()) { target = new Date(target.getTime() + 7 * 86400000); }
+
+        function ord(n) {
+          var s = ['th', 'st', 'nd', 'rd'];
+          var v = n % 100;
+          return n + (s[(v - 20) % 10] || s[v] || s[0]);
+        }
+        function cohortMonthDay(d) {
+          var ist = new Date(d.getTime() + 5.5 * 3600000);
+          var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+          return months[ist.getUTCMonth()] + ' ' + ord(ist.getUTCDate());
+        }
+        function cohortFull(d) {
+          var ist = new Date(d.getTime() + 5.5 * 3600000);
+          return cohortMonthDay(d) + ', ' + ist.getUTCFullYear();
+        }
+        var setDateLabels = function () {
+          var md = cohortMonthDay(target);
+          var full = cohortFull(target);
+          var el;
+          el = document.getElementById('heroDate'); if (el) el.textContent = md;
+          el = document.getElementById('statDate'); if (el) el.textContent = md;
+          el = document.getElementById('noteDate'); if (el) el.textContent = full;
+          el = document.getElementById('applyDate'); if (el) el.textContent = md;
+          el = document.getElementById('finalDate'); if (el) el.textContent = md;
+        };
+        setDateLabels();
+
+        function pad(n) { return String(n).padStart(2, '0'); }
+        function tick() {
+          if (target.getTime() <= Date.now()) { target = nextCohortStart(); setDateLabels(); }
+          var diff = Math.max(0, target.getTime() - Date.now());
+          var d = Math.floor(diff / 86400000);
+          var h = Math.floor(diff % 86400000 / 3600000);
+          var m = Math.floor(diff % 3600000 / 60000);
+          var s2 = Math.floor(diff % 60000 / 1000);
+          document.getElementById('cdDays').textContent = pad(d);
+          document.getElementById('cdHours').textContent = pad(h);
+          document.getElementById('cdMins').textContent = pad(m);
+          document.getElementById('cdSecs').textContent = pad(s2);
+        }
+        tick(); setInterval(tick, 1000);
+
+        var modules = [
+          { id: "01", title: "Foundations of Software Engineering", details: ["Python fundamentals engineers actually use on the job", "Data types, loops, functions, list comprehensions", "Virtual environments & dependency management (pip, venv)", "Writing clean, readable, production-style code", "Exception handling & defensive programming"] },
+          { id: "02", title: "Advanced Python Engineering", details: ["OOP basics — classes, objects, inheritance", "File handling — reading/writing JSON, CSV, TXT", "Advanced decorators and generators", "Concurrency and Parallelism in Python", "Project: CLI Automation Tool"] },
+          { id: "03", title: "Backend Architecture & API Systems", details: ["Backend architecture — how real systems are built", "REST API design principles & best practices", "FastAPI — routing, middleware, dependency injection", "Request validation with Pydantic v2", "Project: Production-ready REST API"] },
+          { id: "04", title: "Scalable System Design", details: ["Authentication basics — API keys & JWT tokens", "Rate limiting & request throttling", "API versioning & documentation (Swagger/OpenAPI)", "Git branching strategy — feature branches, PRs, code review", "System design patterns for high-availability"] },
+          { id: "05", title: "Data Systems & Database Engineering", details: ["Relational database design & normalization", "Advanced SQL — joins, indexes, aggregations", "SQLAlchemy ORM — models, relationships, migrations", "Database migrations with Alembic", "Connection pooling & query optimization"] },
+          { id: "06", title: "Data Engineering for AI Systems", details: ["Redis for caching & session management", "Intro to async database operations", "Data modeling for AI applications", "Project: Scalable User & Data Management System", "ETL pipelines for unstructured data"] },
+          { id: "07", title: "Large Language Model Engineering", details: ["LLM internals — transformers, attention, tokenization", "OpenAI GPT-4o & Claude — API mastery", "Hugging Face Hub — loading & using open source models", "Running LLaMA 3, Mistral, Phi-3 locally with Ollama", "Token optimization & cost control"] },
+          { id: "08", title: "Prompt Engineering & AI Workflows", details: ["Advanced prompt engineering — system prompts, few-shot, CoT, ReAct", "Structured outputs — JSON mode, function schemas", "Streaming responses & async LLM calls", "Multi-model routing — when to use which model", "Project: Production AI Assistant with multi-model support"] },
+          { id: "09", title: "Semantic Search & Embedding Systems", details: ["Embedding models — how they encode meaning", "OpenAI text-embedding-3 (small & large)", "Hugging Face Sentence Transformers (open source & free)", "Cosine similarity, dot product, Euclidean distance", "Approximate nearest neighbor search (ANN)"] },
+          { id: "10", title: "Retrieval-Augmented Systems (RAG)", details: ["RAG architecture — ingestion, retrieval, augmentation, generation", "Advanced document loaders — PDF, DOCX, web scraping, databases", "Chunking strategies — fixed, semantic, recursive", "FAISS — local vector index, GPU acceleration", "Pinecone, ChromaDB, Weaviate — production vector databases"] },
+          { id: "11", title: "Agentic Systems & Autonomous Workflows", details: ["Agent architecture — perception, planning, action, memory", "ReAct, Plan-and-Execute, Reflexion patterns", "OpenAI function calling & tool use", "LangGraph — stateful, multi-step agent workflows", "Multi-agent systems with AutoGen & CrewAI"] },
+          { id: "12", title: "Model Fine-Tuning & Customization", details: ["When to fine-tune vs prompt engineer vs RAG", "Dataset preparation & formatting (instruction tuning format)", "LoRA & QLoRA — parameter efficient fine-tuning", "Fine-tuning LLaMA 3 & Mistral on custom data", "Project: Domain-specific fine-tuned model"] },
+          { id: "13", title: "Deployment, MLOps & LLMOps", details: ["Docker — containerizing AI applications", "CI/CD pipelines with GitHub Actions", "Deploying on AWS EC2, GCP Cloud Run, Hugging Face Spaces", "LLM observability — tracing, logging, evaluation with Langfuse", "A/B testing AI models in production"] },
+          { id: "14", title: "AI System Design & Professional Readiness", details: ["AI system design patterns used at top companies", "Designing RAG at scale — 1M+ documents", "Portfolio & GitHub optimization for AI engineering roles", "Resume writing aligned to AI engineering job descriptions", "Salary benchmarking & negotiation playbook"] },
+          { id: "15", title: "Capstone Engineering & Final Demonstration", details: ["Choose your track: AI SaaS, Enterprise Knowledge AI, or Automation", "Full stack production backend with auth", "RAG pipeline with vector database", "Agentic workflows (at least one autonomous agent)", "Live demo to panel of industry engineers"] }
+        ];
+
+        var modal = document.getElementById('moduleModal');
+        var mTitle = document.getElementById('mTitle');
+        var mSection = document.getElementById('mSection');
+        var mList = document.getElementById('mList');
+
+        function openModule(idx) {
+          var mod = modules[idx];
+          mSection.textContent = 'Section ' + mod.id;
+          mTitle.textContent = mod.title;
+          mList.innerHTML = '';
+          mod.details.forEach(function (d) {
+            var li = document.createElement('li');
+            var span = document.createElement('span');
+            span.textContent = d;
+            li.appendChild(span);
+            mList.appendChild(li);
+          });
+          modal.classList.add('open');
+        }
+
+        document.querySelectorAll('.module-card').forEach(function (card) {
+          card.addEventListener('click', function () { openModule(parseInt(card.getAttribute('data-module'), 10)); });
+        });
+        document.getElementById('mClose').addEventListener('click', function () { modal.classList.remove('open'); });
+        modal.addEventListener('click', function (e) { if (e.target === modal) modal.classList.remove('open'); });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') modal.classList.remove('open'); });
+
+        document.querySelectorAll('.faq-item').forEach(function (item) {
+          item.addEventListener('click', function () {
+            var open = item.classList.contains('open');
+            document.querySelectorAll('.faq-item.open').forEach(function (el) { el.classList.remove('open'); });
+            if (!open) item.classList.add('open');
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
