@@ -65,8 +65,7 @@
       .mobile-cta:hover { background: rgb(0,70,178); }
       @media (max-width: 360px) { .mobile-header { padding: 8px 12px; gap: 8px; } .mobile-brand { font-size: 17px; } .mobile-cta { font-size: 11px; padding: 8px 12px; } }
 
-      .bottom-nav { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; height: 76px; background: #000; align-items: stretch; }
-      .bottom-nav::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 40px; pointer-events: none; background: linear-gradient(180deg, rgba(255,255,255,0.30) 0%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0) 100%); }
+      .bottom-nav { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; height: 76px; background: #060606; align-items: stretch; }
       @media (max-width: 767px) { .bottom-nav { display: flex; height: 52px; padding-bottom: env(safe-area-inset-bottom, 0px); box-sizing: border-box; } }
       @media (max-width: 767px) { .bottom-link svg { display: none; } }
       .bottom-nav-inner { display: flex; justify-content: space-around; align-items: stretch; width: 100%; height: 100%; }
@@ -74,9 +73,6 @@
       .bottom-link svg { width: 26px; height: 26px; stroke-width: 1.5; transition: all 0.3s; }
       .bottom-link:hover { color: rgba(255,255,255,0.7); }
       .bottom-link.active { color: #fff; }
-      .bottom-link.active::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100%; height: 34px; pointer-events: none; background: linear-gradient(180deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0) 100%); }
-      .bottom-link.active svg { color: #fff; position: relative; filter: drop-shadow(0 0 8px rgba(255,255,255,0.4)); }
-      .bottom-link.active::after { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 46px; height: 2px; border-radius: 2px; background: #fff; box-shadow: 0 0 14px 4px rgba(255,255,255,0.45); }
       .bottom-link span { font-size: 12px; font-weight: 400; line-height: 1; }
       .content-wrap { padding-bottom: 90px; }
       @media (min-width: 768px) { .content-wrap { padding-bottom: 0; } }
