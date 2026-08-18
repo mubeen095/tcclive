@@ -53,8 +53,9 @@
 
       .main-scroll { flex: 1; height: 100%; overflow-y: auto; overflow-x: hidden; position: relative; }
 
-      .mobile-header { display: flex; position: sticky; top: 0; left: 0; right: 0; z-index: 110; padding: 8px 16px; align-items: center; justify-content: space-between; background: rgba(6,6,6,0.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06); }
+      .mobile-header { display: flex; position: fixed; top: 0; left: 0; right: 0; width: 100%; z-index: 1201; height: 52px; padding: 0 16px; align-items: center; justify-content: space-between; background: rgba(6,6,6,0.86); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.06); box-shadow: 0 10px 26px rgba(0,0,0,0.28); }
       @media (min-width: 768px) { .mobile-header { display: none; } }
+      @media (max-width: 767px) { .main-scroll > .content-wrap { padding-top: 52px; } }
       .mobile-brand { font-size: 19px; }
       .mobile-actions { display: flex; align-items: center; gap: 10px; }
       .mobile-login { width: 40px; height: 40px; border-radius: 999px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); transition: all 0.3s; }
