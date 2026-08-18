@@ -1046,16 +1046,12 @@
       style.textContent = STYLES;
       document.head.appendChild(style);
     }
-    var obs = new (window.MutationObserver || window.WebKitMutationObserver)(function () {
+    function tryInject() {
       var probe = document.querySelector(".curriculum-module");
-      if (!probe) return;
+      if (!probe) return false;
       var host = probe.closest('[class*="max-w-4xl"]') || probe.closest("main");
-      if (!host) return;
-      if (host.querySelector("[data-cs-injected]")) {
-        obs.disconnect();
-        return;
-      }
-      obs.disconnect();
+      if (!host) return false;
+      if (host.querySelector("[data-cs-injected]")) return true;
       var block = document.createElement("div");
       block.setAttribute("data-cs-injected", "");
       block.innerHTML = render(d);
@@ -1063,8 +1059,17 @@
       var last = secs[secs.length - 1];
       if (last) last.insertAdjacentElement("afterend", block);
       else host.appendChild(block);
+      return true;
+    }
+    if (tryInject()) return;
+    var obs = new (window.MutationObserver || window.WebKitMutationObserver)(function () {
+      if (tryInject()) obs.disconnect();
     });
     obs.observe(document.body, { childList: true, subtree: true });
+    window.setTimeout(function () {
+      tryInject();
+      obs.disconnect();
+    }, 8000);
   }
 
   function inject() {
